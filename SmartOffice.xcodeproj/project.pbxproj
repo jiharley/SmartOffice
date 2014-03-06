@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		381ED4E718C6C74D0048AC13 /* SignProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 381ED4E618C6C74D0048AC13 /* SignProgressView.m */; };
+		3842956818C8B0A200FC5E28 /* CheckWholeDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3842956718C8B0A200FC5E28 /* CheckWholeDayCell.m */; };
+		385BD71C18C7150900F6A3BB /* graycircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 385BD71B18C7150900F6A3BB /* graycircle.png */; };
+		385BD71E18C71FEB00F6A3BB /* bluecircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 385BD71D18C71FEB00F6A3BB /* bluecircle.png */; };
+		385BD72C18C75AA500F6A3BB /* TextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 385BD72B18C75AA500F6A3BB /* TextViewCell.m */; };
+		385BD73118C75CB000F6A3BB /* AbsenseApplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 385BD73018C75CB000F6A3BB /* AbsenseApplyViewController.m */; };
 		386EEB3518BDD9D100500855 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 386EEB3418BDD9D100500855 /* Foundation.framework */; };
 		386EEB3718BDD9D100500855 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 386EEB3618BDD9D100500855 /* CoreGraphics.framework */; };
 		386EEB3918BDD9D100500855 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 386EEB3818BDD9D100500855 /* UIKit.framework */; };
@@ -14,14 +20,29 @@
 		386EEB4118BDD9D100500855 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 386EEB4018BDD9D100500855 /* main.m */; };
 		386EEB4518BDD9D100500855 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 386EEB4418BDD9D100500855 /* AppDelegate.m */; };
 		386EEB4818BDD9D100500855 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 386EEB4618BDD9D100500855 /* Main.storyboard */; };
-		386EEB4B18BDD9D100500855 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386EEB4A18BDD9D100500855 /* FirstViewController.m */; };
-		386EEB4E18BDD9D100500855 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386EEB4D18BDD9D100500855 /* SecondViewController.m */; };
+		386EEB4B18BDD9D100500855 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386EEB4A18BDD9D100500855 /* MessageViewController.m */; };
+		386EEB4E18BDD9D100500855 /* AttendanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386EEB4D18BDD9D100500855 /* AttendanceViewController.m */; };
 		386EEB5018BDD9D100500855 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 386EEB4F18BDD9D100500855 /* Images.xcassets */; };
 		386EEB5718BDD9D100500855 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 386EEB5618BDD9D100500855 /* XCTest.framework */; };
 		386EEB5818BDD9D100500855 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 386EEB3418BDD9D100500855 /* Foundation.framework */; };
 		386EEB5918BDD9D100500855 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 386EEB3818BDD9D100500855 /* UIKit.framework */; };
 		386EEB6118BDD9D100500855 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 386EEB5F18BDD9D100500855 /* InfoPlist.strings */; };
 		386EEB6318BDD9D100500855 /* SmartOfficeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 386EEB6218BDD9D100500855 /* SmartOfficeTests.m */; };
+		388E83D918C43DA20047CF86 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 388E83D818C43DA20047CF86 /* MessageCell.xib */; };
+		388E83DE18C441800047CF86 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 388E83DD18C441800047CF86 /* MessageCell.m */; };
+		388E83E418C460F30047CF86 /* todo.png in Resources */ = {isa = PBXBuildFile; fileRef = 388E83E318C460F30047CF86 /* todo.png */; };
+		388E83E618C4664A0047CF86 /* notification.png in Resources */ = {isa = PBXBuildFile; fileRef = 388E83E518C4664A0047CF86 /* notification.png */; };
+		388E83E818C466740047CF86 /* announcement1.png in Resources */ = {isa = PBXBuildFile; fileRef = 388E83E718C466740047CF86 /* announcement1.png */; };
+		388E83EA18C469960047CF86 /* announcement.png in Resources */ = {isa = PBXBuildFile; fileRef = 388E83E918C469960047CF86 /* announcement.png */; };
+		388E83EE18C46B080047CF86 /* more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 388E83EB18C46B080047CF86 /* more@2x.png */; };
+		388E83EF18C46B080047CF86 /* message@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 388E83EC18C46B080047CF86 /* message@2x.png */; };
+		388E83F018C46B080047CF86 /* attendance@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 388E83ED18C46B080047CF86 /* attendance@2x.png */; };
+		388E83F518C4B58F0047CF86 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 388E83F418C4B58F0047CF86 /* QuartzCore.framework */; };
+		388E83FA18C4B5D40047CF86 /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 388E83F918C4B5D40047CF86 /* PullRefreshTableViewController.m */; };
+		388E83FC18C4B8650047CF86 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 388E83FB18C4B8650047CF86 /* arrow.png */; };
+		388E83FE18C573B30047CF86 /* sign.png in Resources */ = {isa = PBXBuildFile; fileRef = 388E83FD18C573B30047CF86 /* sign.png */; };
+		38ADAC2218BF170300FD98A7 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38ADAC2118BF170300FD98A7 /* MoreViewController.m */; };
+		38DB5F1418C8B8D7008C2085 /* DatePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DB5F1318C8B8D7008C2085 /* DatePickerCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +56,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		381ED4E518C6C74D0048AC13 /* SignProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignProgressView.h; sourceTree = "<group>"; };
+		381ED4E618C6C74D0048AC13 /* SignProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignProgressView.m; sourceTree = "<group>"; };
+		3842956618C8B0A200FC5E28 /* CheckWholeDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckWholeDayCell.h; sourceTree = "<group>"; };
+		3842956718C8B0A200FC5E28 /* CheckWholeDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckWholeDayCell.m; sourceTree = "<group>"; };
+		385BD71B18C7150900F6A3BB /* graycircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graycircle.png; sourceTree = "<group>"; };
+		385BD71D18C71FEB00F6A3BB /* bluecircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bluecircle.png; sourceTree = "<group>"; };
+		385BD72A18C75AA500F6A3BB /* TextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewCell.h; sourceTree = "<group>"; };
+		385BD72B18C75AA500F6A3BB /* TextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewCell.m; sourceTree = "<group>"; };
+		385BD72F18C75CB000F6A3BB /* AbsenseApplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbsenseApplyViewController.h; sourceTree = "<group>"; };
+		385BD73018C75CB000F6A3BB /* AbsenseApplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbsenseApplyViewController.m; sourceTree = "<group>"; };
 		386EEB3118BDD9D100500855 /* SmartOffice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartOffice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		386EEB3418BDD9D100500855 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		386EEB3618BDD9D100500855 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -46,16 +77,35 @@
 		386EEB4318BDD9D100500855 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		386EEB4418BDD9D100500855 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		386EEB4718BDD9D100500855 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		386EEB4918BDD9D100500855 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		386EEB4A18BDD9D100500855 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		386EEB4C18BDD9D100500855 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		386EEB4D18BDD9D100500855 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		386EEB4918BDD9D100500855 /* MessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
+		386EEB4A18BDD9D100500855 /* MessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
+		386EEB4C18BDD9D100500855 /* AttendanceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AttendanceViewController.h; sourceTree = "<group>"; };
+		386EEB4D18BDD9D100500855 /* AttendanceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AttendanceViewController.m; sourceTree = "<group>"; };
 		386EEB4F18BDD9D100500855 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		386EEB5518BDD9D100500855 /* SmartOfficeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartOfficeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		386EEB5618BDD9D100500855 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		386EEB5E18BDD9D100500855 /* SmartOfficeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SmartOfficeTests-Info.plist"; sourceTree = "<group>"; };
 		386EEB6018BDD9D100500855 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		386EEB6218BDD9D100500855 /* SmartOfficeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmartOfficeTests.m; sourceTree = "<group>"; };
+		388E83D818C43DA20047CF86 /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
+		388E83DC18C441800047CF86 /* MessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
+		388E83DD18C441800047CF86 /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
+		388E83E318C460F30047CF86 /* todo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = todo.png; sourceTree = "<group>"; };
+		388E83E518C4664A0047CF86 /* notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification.png; sourceTree = "<group>"; };
+		388E83E718C466740047CF86 /* announcement1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = announcement1.png; sourceTree = "<group>"; };
+		388E83E918C469960047CF86 /* announcement.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = announcement.png; sourceTree = "<group>"; };
+		388E83EB18C46B080047CF86 /* more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more@2x.png"; sourceTree = "<group>"; };
+		388E83EC18C46B080047CF86 /* message@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message@2x.png"; sourceTree = "<group>"; };
+		388E83ED18C46B080047CF86 /* attendance@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "attendance@2x.png"; sourceTree = "<group>"; };
+		388E83F418C4B58F0047CF86 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		388E83F818C4B5D40047CF86 /* PullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullRefreshTableViewController.h; sourceTree = "<group>"; };
+		388E83F918C4B5D40047CF86 /* PullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullRefreshTableViewController.m; sourceTree = "<group>"; };
+		388E83FB18C4B8650047CF86 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		388E83FD18C573B30047CF86 /* sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sign.png; sourceTree = "<group>"; };
+		38ADAC2018BF170300FD98A7 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
+		38ADAC2118BF170300FD98A7 /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
+		38DB5F1218C8B8D7008C2085 /* DatePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerCell.h; sourceTree = "<group>"; };
+		38DB5F1318C8B8D7008C2085 /* DatePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				388E83F518C4B58F0047CF86 /* QuartzCore.framework in Frameworks */,
 				386EEB3718BDD9D100500855 /* CoreGraphics.framework in Frameworks */,
 				386EEB3918BDD9D100500855 /* UIKit.framework in Frameworks */,
 				386EEB3518BDD9D100500855 /* Foundation.framework in Frameworks */,
@@ -82,6 +133,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		385BD72918C75A4E00F6A3BB /* AbsenceApply */ = {
+			isa = PBXGroup;
+			children = (
+				385BD72A18C75AA500F6A3BB /* TextViewCell.h */,
+				385BD72B18C75AA500F6A3BB /* TextViewCell.m */,
+				385BD72F18C75CB000F6A3BB /* AbsenseApplyViewController.h */,
+				385BD73018C75CB000F6A3BB /* AbsenseApplyViewController.m */,
+				3842956618C8B0A200FC5E28 /* CheckWholeDayCell.h */,
+				3842956718C8B0A200FC5E28 /* CheckWholeDayCell.m */,
+				38DB5F1218C8B8D7008C2085 /* DatePickerCell.h */,
+				38DB5F1318C8B8D7008C2085 /* DatePickerCell.m */,
+			);
+			name = AbsenceApply;
+			sourceTree = "<group>";
+		};
 		386EEB2818BDD9D100500855 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +170,7 @@
 		386EEB3318BDD9D100500855 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				388E83F418C4B58F0047CF86 /* QuartzCore.framework */,
 				386EEB3418BDD9D100500855 /* Foundation.framework */,
 				386EEB3618BDD9D100500855 /* CoreGraphics.framework */,
 				386EEB3818BDD9D100500855 /* UIKit.framework */,
@@ -115,13 +182,23 @@
 		386EEB3A18BDD9D100500855 /* SmartOffice */ = {
 			isa = PBXGroup;
 			children = (
+				385BD72918C75A4E00F6A3BB /* AbsenceApply */,
+				388E83F818C4B5D40047CF86 /* PullRefreshTableViewController.h */,
+				388E83F918C4B5D40047CF86 /* PullRefreshTableViewController.m */,
+				381ED4E518C6C74D0048AC13 /* SignProgressView.h */,
+				381ED4E618C6C74D0048AC13 /* SignProgressView.m */,
 				386EEB4318BDD9D100500855 /* AppDelegate.h */,
 				386EEB4418BDD9D100500855 /* AppDelegate.m */,
+				386EEB4918BDD9D100500855 /* MessageViewController.h */,
+				386EEB4A18BDD9D100500855 /* MessageViewController.m */,
+				388E83DC18C441800047CF86 /* MessageCell.h */,
+				388E83DD18C441800047CF86 /* MessageCell.m */,
+				386EEB4C18BDD9D100500855 /* AttendanceViewController.h */,
+				386EEB4D18BDD9D100500855 /* AttendanceViewController.m */,
+				38ADAC2018BF170300FD98A7 /* MoreViewController.h */,
+				38ADAC2118BF170300FD98A7 /* MoreViewController.m */,
+				388E83D818C43DA20047CF86 /* MessageCell.xib */,
 				386EEB4618BDD9D100500855 /* Main.storyboard */,
-				386EEB4918BDD9D100500855 /* FirstViewController.h */,
-				386EEB4A18BDD9D100500855 /* FirstViewController.m */,
-				386EEB4C18BDD9D100500855 /* SecondViewController.h */,
-				386EEB4D18BDD9D100500855 /* SecondViewController.m */,
 				386EEB4F18BDD9D100500855 /* Images.xcassets */,
 				386EEB3B18BDD9D100500855 /* Supporting Files */,
 			);
@@ -131,6 +208,17 @@
 		386EEB3B18BDD9D100500855 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				388E83FD18C573B30047CF86 /* sign.png */,
+				388E83FB18C4B8650047CF86 /* arrow.png */,
+				388E83EB18C46B080047CF86 /* more@2x.png */,
+				385BD71B18C7150900F6A3BB /* graycircle.png */,
+				388E83EC18C46B080047CF86 /* message@2x.png */,
+				385BD71D18C71FEB00F6A3BB /* bluecircle.png */,
+				388E83ED18C46B080047CF86 /* attendance@2x.png */,
+				388E83E918C469960047CF86 /* announcement.png */,
+				388E83E318C460F30047CF86 /* todo.png */,
+				388E83E718C466740047CF86 /* announcement1.png */,
+				388E83E518C4664A0047CF86 /* notification.png */,
 				386EEB3C18BDD9D100500855 /* SmartOffice-Info.plist */,
 				386EEB3D18BDD9D100500855 /* InfoPlist.strings */,
 				386EEB4018BDD9D100500855 /* main.m */,
@@ -233,8 +321,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				388E83EA18C469960047CF86 /* announcement.png in Resources */,
+				388E83E618C4664A0047CF86 /* notification.png in Resources */,
 				386EEB5018BDD9D100500855 /* Images.xcassets in Resources */,
+				388E83D918C43DA20047CF86 /* MessageCell.xib in Resources */,
+				388E83EE18C46B080047CF86 /* more@2x.png in Resources */,
+				388E83F018C46B080047CF86 /* attendance@2x.png in Resources */,
 				386EEB3F18BDD9D100500855 /* InfoPlist.strings in Resources */,
+				388E83FC18C4B8650047CF86 /* arrow.png in Resources */,
+				385BD71E18C71FEB00F6A3BB /* bluecircle.png in Resources */,
+				388E83E418C460F30047CF86 /* todo.png in Resources */,
+				388E83E818C466740047CF86 /* announcement1.png in Resources */,
+				388E83FE18C573B30047CF86 /* sign.png in Resources */,
+				388E83EF18C46B080047CF86 /* message@2x.png in Resources */,
+				385BD71C18C7150900F6A3BB /* graycircle.png in Resources */,
 				386EEB4818BDD9D100500855 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,10 +354,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				386EEB4E18BDD9D100500855 /* SecondViewController.m in Sources */,
+				385BD72C18C75AA500F6A3BB /* TextViewCell.m in Sources */,
+				388E83FA18C4B5D40047CF86 /* PullRefreshTableViewController.m in Sources */,
+				381ED4E718C6C74D0048AC13 /* SignProgressView.m in Sources */,
+				386EEB4E18BDD9D100500855 /* AttendanceViewController.m in Sources */,
 				386EEB4518BDD9D100500855 /* AppDelegate.m in Sources */,
-				386EEB4B18BDD9D100500855 /* FirstViewController.m in Sources */,
+				386EEB4B18BDD9D100500855 /* MessageViewController.m in Sources */,
+				3842956818C8B0A200FC5E28 /* CheckWholeDayCell.m in Sources */,
+				388E83DE18C441800047CF86 /* MessageCell.m in Sources */,
 				386EEB4118BDD9D100500855 /* main.m in Sources */,
+				385BD73118C75CB000F6A3BB /* AbsenseApplyViewController.m in Sources */,
+				38ADAC2218BF170300FD98A7 /* MoreViewController.m in Sources */,
+				38DB5F1418C8B8D7008C2085 /* DatePickerCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +574,7 @@
 				386EEB6818BDD9D100500855 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		386EEB6918BDD9D100500855 /* Build configuration list for PBXNativeTarget "SmartOfficeTests" */ = {
 			isa = XCConfigurationList;
@@ -474,6 +583,7 @@
 				386EEB6B18BDD9D100500855 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
