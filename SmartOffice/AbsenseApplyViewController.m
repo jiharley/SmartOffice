@@ -18,20 +18,35 @@
 #define kDateStartRow   1
 #define kDateEndRow     2
 
+#define BusinessApply 0
+#define VacationApply 1
 static NSString *kDateCellID = @"dateCell";     // the cells with the start or end date
 static NSString *kDatePickerID = @"datePicker"; // the cell containing the date picker
 static NSString *kDetailReasonCellID = @"detailReasonCell"; //the cell for detailed reason for absence
 static NSString *kCheckWholeDayCellID = @"checkWholeDayCell";
 
 @interface AbsenseApplyViewController ()
+@property (nonatomic, retain) NSString *placeHolderString;
+@property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, strong) NSDateFormatter *dateFormatter;
+
+@property (nonatomic, retain) NSString *detailReasonString;
+// keep track which indexPath points to the cell with UIDatePicker
+@property (nonatomic, strong) NSIndexPath *datePickerIndexPath;
+
+@property (assign) NSInteger pickerCellRowHeight;
+@property (assign) NSInteger detailReasonCellRowHeight;
+
+@property (strong, nonatomic) IBOutlet UIDatePicker *pickerView;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+
+- (IBAction)dateAction:(id)sender;
+- (IBAction)doneAction:(id)sender;
+- (IBAction)checkWholeDayAction:(id)sender;
 
 @end
 
 @implementation AbsenseApplyViewController
-@synthesize dateFormatter = _dateFormatter;
-@synthesize dataArray = _dataArray;
-@synthesize detailReasonString = _detailReasonString;
-//@synthesize pickerView = _pickerView;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -46,36 +61,35 @@ static NSString *kCheckWholeDayCellID = @"checkWholeDayCell";
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //get the apply type and set up title and placehold string
+    NSString *title = self.applyType == BusinessApply ? @"出差":@"请假";
+    self.navigationItem.title = title;
+    self.placeHolderString = [NSString stringWithFormat:@"%@详情", title];
+    
     // setup our data source
     NSMutableDictionary *itemOne = [@{ kTitleKey : @"whole day" } mutableCopy];
     NSMutableDictionary *itemTwo = [@{ kTitleKey : @"从",
                                        kDateKey : [NSDate date] } mutableCopy];
     NSMutableDictionary *itemThree = [@{ kTitleKey : @"到",
                                          kDateKey : [NSDate date] } mutableCopy];
-//    NSMutableDictionary *itemFour = [@{ kTitleKey : @"(other item1)" } mutableCopy];
-//    NSMutableDictionary *itemFive = [@{ kTitleKey : @"(other item2)" } mutableCopy];
-    _dataArray = @[itemOne, itemTwo, itemThree];
+    self.dataArray = @[itemOne, itemTwo, itemThree];
 
-    _dateFormatter = [[NSDateFormatter alloc] init];
-    [_dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-    [_dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-//    _pickerView.datePickerMode = UIDatePickerModeDate;
-//    _pickerView.minimumDate = [NSDate date];
+    self.dateFormatter = [[NSDateFormatter alloc] init];
+    [self.dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    [self.dateFormatter setTimeStyle:NSDateFormatterNoStyle];
     
     DatePickerCell *datePickCell = (DatePickerCell*) [self.tableView dequeueReusableCellWithIdentifier:kDatePickerID];
     datePickCell.datePickerView.datePickerMode = UIDatePickerModeDate;
     // obtain the picker view cell's height, works because the cell was pre-defined in our storyboard
     self.pickerCellRowHeight = datePickCell.frame.size.height;
     
+    
     TextViewCell *detailReasonCell = (TextViewCell*)[self.tableView dequeueReusableCellWithIdentifier:kDetailReasonCellID];
     self.detailReasonCellRowHeight = detailReasonCell.frame.size.height;
     
-    _detailReasonString = @"";
+    datePickCell = nil;
+    detailReasonCell = nil;
+    self.detailReasonString = @"";
     isCheckWholeDay = YES;
     
     // if the local changes while in the background, we need to be notified so we can update the date
@@ -136,8 +150,8 @@ NSUInteger DeviceSystemMajorVersion()
     NSInteger targetedRow = indexPath.row;
     targetedRow++;
     
-    UITableViewCell *checkDatePickerCell =
-    [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:targetedRow inSection:0]];
+    DatePickerCell *checkDatePickerCell =
+    (DatePickerCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:targetedRow inSection:0]];
     UIDatePicker *checkDatePicker = (UIDatePicker *)[checkDatePickerCell viewWithTag:kDatePickerTag];
     
     hasDatePicker = (checkDatePicker != nil);
@@ -150,7 +164,7 @@ NSUInteger DeviceSystemMajorVersion()
 {
     if (self.datePickerIndexPath != nil)
     {
-        UITableViewCell *associatedDatePickerCell = [self.tableView cellForRowAtIndexPath:self.datePickerIndexPath];
+        DatePickerCell *associatedDatePickerCell = (DatePickerCell*)[self.tableView cellForRowAtIndexPath:self.datePickerIndexPath];
         
         UIDatePicker *targetedDatePicker = (UIDatePicker *)[associatedDatePickerCell viewWithTag:kDatePickerTag];
         if (targetedDatePicker != nil)
@@ -248,12 +262,11 @@ NSUInteger DeviceSystemMajorVersion()
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    static NSString *CellIdentifier = @"Cell";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     UITableViewCell *dateCell = nil;
     TextViewCell *textViewCell = nil;
     CheckWholeDayCell *switchCell = nil;
     DatePickerCell *pickerCell = nil;
+    
     NSString *cellID = kDetailReasonCellID;
     
     if ([indexPath section] == 0 && [indexPath row] == 0) {
@@ -323,14 +336,16 @@ NSUInteger DeviceSystemMajorVersion()
         case 1:
         {
             textViewCell = (TextViewCell*) [tableView dequeueReusableCellWithIdentifier:kDetailReasonCellID];
-            if ([_detailReasonString isEqualToString:@""]) {
-                textViewCell.detailReasonTextView.text = @"详情";
-                textViewCell.detailReasonTextView.textColor = [UIColor lightGrayColor];
-            }
-            else{
-                textViewCell.detailReasonTextView.text = _detailReasonString;
-                textViewCell.detailReasonTextView.textColor = [UIColor blackColor];
-            }
+            textViewCell.detailReasonTextView.delegate = textViewCell;
+            textViewCell.placeHolderLabel.text = self.placeHolderString;
+//            if ([_detailReasonString isEqualToString:@""]) {
+//                textViewCell.detailReasonTextView.text = @"详情";
+//                textViewCell.detailReasonTextView.textColor = [UIColor lightGrayColor];
+//            }
+//            else{
+                textViewCell.detailReasonTextView.text = self.detailReasonString;
+//                textViewCell.detailReasonTextView.textColor = [UIColor blackColor];
+//            }
             return textViewCell;
             break;
         }
@@ -419,33 +434,33 @@ NSUInteger DeviceSystemMajorVersion()
  */
 - (void)displayExternalDatePickerForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    // first update the date picker's date value according to our model
-//    NSDictionary *itemData = self.dataArray[indexPath.row];
-//    [self.pickerView setDate:[itemData valueForKey:kDateKey] animated:YES];
-//    
-//    // the date picker might already be showing, so don't add it to our view
-//    if (self.pickerView.superview == nil)
-//    {
-//        CGRect startFrame = self.pickerView.frame;
-//        CGRect endFrame = self.pickerView.frame;
-//        
-//        // the start position is below the bottom of the visible frame
-//        startFrame.origin.y = self.view.frame.size.height;
-//        
-//        // the end position is slid up by the height of the view
-//        endFrame.origin.y = startFrame.origin.y - endFrame.size.height;
-//        
-//        self.pickerView.frame = startFrame;
-//        
-//        [self.view addSubview:self.pickerView];
-//        
-//        // animate the date picker into view
-//        [UIView animateWithDuration:kPickerAnimationDuration animations: ^{ self.pickerView.frame = endFrame; }
-//                         completion:^(BOOL finished) {
-//                             // add the "Done" button to the nav bar
-//                             self.navigationItem.rightBarButtonItem = self.doneButton;
-//                         }];
-//    }
+    // first update the date picker's date value according to our model
+    NSDictionary *itemData = self.dataArray[indexPath.row];
+    [self.pickerView setDate:[itemData valueForKey:kDateKey] animated:YES];
+    
+    // the date picker might already be showing, so don't add it to our view
+    if (self.pickerView.superview == nil)
+    {
+        CGRect startFrame = self.pickerView.frame;
+        CGRect endFrame = self.pickerView.frame;
+        
+        // the start position is below the bottom of the visible frame
+        startFrame.origin.y = self.view.frame.size.height;
+        
+        // the end position is slid up by the height of the view
+        endFrame.origin.y = startFrame.origin.y - endFrame.size.height;
+        
+        self.pickerView.frame = startFrame;
+        
+        [self.view addSubview:self.pickerView];
+        
+        // animate the date picker into view
+        [UIView animateWithDuration:kPickerAnimationDuration animations: ^{ self.pickerView.frame = endFrame; }
+                         completion:^(BOOL finished) {
+                             // add the "Done" button to the nav bar
+                             self.navigationItem.rightBarButtonItem = self.doneButton;
+                         }];
+    }
 }
 
 #pragma mark - UITableViewDelegate
@@ -500,17 +515,39 @@ NSUInteger DeviceSystemMajorVersion()
     cell.detailTextLabel.text = [self.dateFormatter stringFromDate:targetedDatePicker.date];
 }
 
+/*! User chose to finish using the UIDatePicker by pressing the "Done" button, (used only for non-inline date picker), iOS 6.1.x or earlier
+ 
+ @param sender The sender for this action: The "Done" UIBarButtonItem
+ */
+- (IBAction)doneAction:(id)sender {
+    CGRect pickerFrame = self.pickerView.frame;
+    pickerFrame.origin.y = self.view.frame.size.height;
+    
+    // animate the date picker out of view
+    [UIView animateWithDuration:kPickerAnimationDuration animations: ^{ self.pickerView.frame = pickerFrame; }
+                     completion:^(BOOL finished) {
+                         [self.pickerView removeFromSuperview];
+                     }];
+    
+    // remove the "Done" button in the navigation bar
+	self.navigationItem.rightBarButtonItem = nil;
+    
+    // deselect the current table cell
+	NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+	[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 - (IBAction)checkWholeDayAction:(id)sender {
     UISwitch *switcher = (id) sender;
     if ([switcher isOn]) {
         isCheckWholeDay = YES;
-        [_dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-        [_dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+        [self.dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+        [self.dateFormatter setTimeStyle:NSDateFormatterNoStyle];
 //        _pickerView.datePickerMode = UIDatePickerModeDate;
     } else {
         isCheckWholeDay = NO;
-        [_dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-        [_dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+        [self.dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+        [self.dateFormatter setTimeStyle:NSDateFormatterShortStyle];
 //        _pickerView.datePickerMode = UIDatePickerModeDateAndTime;
     }
     [self.tableView reloadData];

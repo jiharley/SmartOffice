@@ -72,10 +72,10 @@
                     cell_.textLabel.text = @"办公室预约";
                     break;
                 case 1:
-                    cell_.textLabel.text = @"报销管理";
+                    cell_.textLabel.text = @"报销进度";
                     break;
                 case 2:
-                    cell_.textLabel.text = @"合同管理";
+                    cell_.textLabel.text = @"合同进度";
                     break;
                 default:
                     break;

@@ -26,4 +26,26 @@
     // Configure the view for the selected state
 }
 
+- (void) textViewDidBeginEditing:(UITextView *)textView
+{
+    self.placeHolderLabel.hidden = YES;
+}
+//- (void)textViewDidChange:(UITextView *)txtView
+//{
+//    self.placeHolderLabel.hidden = ([txtView.text length] > 0);
+//}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    self.placeHolderLabel.hidden = ([textView.text length] > 0);
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if ([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    return YES;
+}
 @end

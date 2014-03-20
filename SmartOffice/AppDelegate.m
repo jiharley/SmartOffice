@@ -7,12 +7,19 @@
 //
 
 #import "AppDelegate.h"
-
+#import <AdSupport/AdSupport.h>
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    //Id for ads
+//    NSString *adid = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+    
+    NSString *idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    NSLog(@"%@", idfv);
+    
+    NSLog(@"%@", [Globals getUdid]);
     return YES;
 //    [appearance setProgressTopGradientColor:[UIColor colorWithRed:204.0/255.0 green:204.0/255.0 blue:204.0/255.0 alpha:1.0]];
 //    [appearance setProgressBottomGradientColor:[UIColor colorWithRed:102.0/255.0 green:102.0/255.0 blue:102.0/255.0 alpha:1.0]];

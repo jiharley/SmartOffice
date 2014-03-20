@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface DatePickerCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIDatePicker *datePickerView;
+@property (strong, nonatomic) IBOutlet UIDatePicker *datePickerView;
 
 @end

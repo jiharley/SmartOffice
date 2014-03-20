@@ -17,19 +17,5 @@
 {
     bool isCheckWholeDay;
 }
-
-@property (nonatomic, strong) NSArray *dataArray;
-@property (nonatomic, strong) NSDateFormatter *dateFormatter;
-
-@property (nonatomic, retain) NSString *detailReasonString;
-// keep track which indexPath points to the cell with UIDatePicker
-@property (nonatomic, strong) NSIndexPath *datePickerIndexPath;
-
-@property (assign) NSInteger pickerCellRowHeight;
-@property (assign) NSInteger detailReasonCellRowHeight;
-
-//@property (strong, nonatomic) IBOutlet UIDatePicker *pickerView;
-
-- (IBAction)dateAction:(id)sender;
-- (IBAction)checkWholeDayAction:(id)sender;
+@property short applyType;
 @end
