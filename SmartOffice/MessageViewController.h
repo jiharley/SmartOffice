@@ -11,6 +11,4 @@
 
 @interface MessageViewController : PullRefreshTableViewController <UITableViewDataSource, UITableViewDelegate>
 
-//@property (weak, nonatomic) IBOutlet UITableView *tableView;
-- (IBAction)refreshTable:(id)sender;
 @end

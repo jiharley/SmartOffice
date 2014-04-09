@@ -8,18 +8,12 @@
 
 #import "Globals.h"
 #import "SvUDIDTools.h"
-#define kUsername @"username"
-#define kPassword @"password"
 @implementation Globals
 
-+(NSString *)getUsername
+//userName getter and setter
++(NSString *)userName
 {
     return [[NSUserDefaults standardUserDefaults] valueForKey:kUsername];
-}
-
-+(NSString *)getPassword
-{
-    return [[NSUserDefaults standardUserDefaults] valueForKey:kPassword];
 }
 
 +(void) setUsername:(NSString *)username
@@ -27,14 +21,89 @@
     [[NSUserDefaults standardUserDefaults] setValue:username forKey:kUsername];
 }
 
-+(void) setPassword:(NSString *)password
+//userPassword getter and setter
++(NSString *)userPassword
+{
+    return [[NSUserDefaults standardUserDefaults] valueForKey:kPassword];
+}
+
++(void) setUserPassword:(NSString *)password
 {
     [[NSUserDefaults standardUserDefaults] setValue:password forKey:kPassword];
 }
 
-+(NSString *)getUdid
+//userId getter and setter
++(NSString*) userId
+{
+    return [[NSUserDefaults standardUserDefaults] valueForKey:kUserId];
+}
+
++(void) setUserId:(NSString *)userId
+{
+    [[NSUserDefaults standardUserDefaults] setValue:userId forKey:kUserId];
+}
+
+//userInfo getter and setter
++(NSDictionary *)userInfo
+{
+    NSString *infoPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *fileName = [infoPath stringByAppendingPathComponent:@"userInfo.plist"];
+    return [NSDictionary dictionaryWithContentsOfFile:fileName];
+}
+
++(void) setUserInfo:(NSDictionary *)userInfo
+{
+    NSString *infoPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *fileName = [infoPath stringByAppendingPathComponent:@"userInfo.plist"];
+    [userInfo writeToFile:fileName atomically:YES];
+}
+
+//deviceToken getter and setter
++(NSString *) deviceToken
+{
+    return [[NSUserDefaults standardUserDefaults] valueForKey:kDeviceToken];
+}
+
++(void) setDeviceToken:(NSString *)token
+{
+    [[NSUserDefaults standardUserDefaults] setValue:token forKey:kDeviceToken];
+}
+
+//phoneId getter
++(NSString *)phoneId
 {
     return [SvUDIDTools UDID];
 }
+//comeSignTime getter and setter
++(NSString *) comeSignTime
+{
+    return [[NSUserDefaults standardUserDefaults] valueForKey:kComeSignTime];
+}
 
++(void) setComeSignTime:(NSString *)time
+{
+    [[NSUserDefaults standardUserDefaults] setValue:time forKey:kComeSignTime];
+}
+
+//leaveSignTime getter and setter
++(NSString *) leaveSignTime
+{
+    return [[NSUserDefaults standardUserDefaults] valueForKey:kLeaveSignTime];
+}
+
++(void) setLeaveSignTime:(NSString *)time
+{
+    [[NSUserDefaults standardUserDefaults] setValue:time forKey:kLeaveSignTime];
+}
+
+//signDate getter and setter
++(NSString *) signDate
+{
+    return [[NSUserDefaults standardUserDefaults] valueForKey:kSignDate];
+}
+
++(void) setSignDate:(NSString *)date
+{
+    [[NSUserDefaults standardUserDefaults] setValue:date forKey:kSignDate];
+}
 @end

@@ -40,6 +40,11 @@
     self.placeHolderLabel.hidden = ([textView.text length] > 0);
 }
 
+- (void) textViewDidChange:(UITextView *)textView
+{
+    [[NSUserDefaults standardUserDefaults] setValue:textView.text forKey:kDetailReason];
+}
+
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
     if ([text isEqualToString:@"\n"]) {

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#define kDetailReason @"detailedReason"
 
 @interface TextViewCell : UITableViewCell <UITextViewDelegate>
 

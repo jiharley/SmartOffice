@@ -13,7 +13,7 @@
 #import "CheckWholeDayCell.h"
 #import "DatePickerCell.h"
 
-@interface AbsenseApplyViewController : UITableViewController
+@interface AbsenceApplyViewController : UITableViewController
 {
     bool isCheckWholeDay;
 }

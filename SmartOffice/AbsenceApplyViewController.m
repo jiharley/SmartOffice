@@ -6,31 +6,33 @@
 //  Copyright (c) 2014年 WMLab. All rights reserved.
 //
 
-#import "AbsenseApplyViewController.h"
+#import "AbsenceApplyViewController.h"
+#import "ASIFormDataRequest.h"
 
 #define kPickerAnimationDuration    0.40   // duration for the animation to slide the date picker into view
 #define kDatePickerTag              99     // view tag identifiying the date picker view
 
 #define kTitleKey       @"title"   // key for obtaining the data source item's title
 #define kDateKey        @"date"    // key for obtaining the data source item's date value
+#define kWholeDay       @"isWholeDay"
 
 // keep track of which rows have date cells
 #define kDateStartRow   1
 #define kDateEndRow     2
 
-#define BusinessApply 0
-#define VacationApply 1
+#define BusinessApply 1
+#define VacationApply 2
 static NSString *kDateCellID = @"dateCell";     // the cells with the start or end date
 static NSString *kDatePickerID = @"datePicker"; // the cell containing the date picker
 static NSString *kDetailReasonCellID = @"detailReasonCell"; //the cell for detailed reason for absence
 static NSString *kCheckWholeDayCellID = @"checkWholeDayCell";
 
-@interface AbsenseApplyViewController ()
+@interface AbsenceApplyViewController () <ASIHTTPRequestDelegate, UIAlertViewDelegate>
 @property (nonatomic, retain) NSString *placeHolderString;
 @property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
 
-@property (nonatomic, retain) NSString *detailReasonString;
+//@property (nonatomic, retain) NSString *detailReasonString;
 // keep track which indexPath points to the cell with UIDatePicker
 @property (nonatomic, strong) NSIndexPath *datePickerIndexPath;
 
@@ -43,10 +45,11 @@ static NSString *kCheckWholeDayCellID = @"checkWholeDayCell";
 - (IBAction)dateAction:(id)sender;
 - (IBAction)doneAction:(id)sender;
 - (IBAction)checkWholeDayAction:(id)sender;
+- (IBAction)sendApplyAction:(id)sender;
 
 @end
 
-@implementation AbsenseApplyViewController
+@implementation AbsenceApplyViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -67,7 +70,8 @@ static NSString *kCheckWholeDayCellID = @"checkWholeDayCell";
     self.placeHolderString = [NSString stringWithFormat:@"%@详情", title];
     
     // setup our data source
-    NSMutableDictionary *itemOne = [@{ kTitleKey : @"whole day" } mutableCopy];
+    NSMutableDictionary *itemOne = [@{ kTitleKey : @"whole day",
+                                       kWholeDay : @"1"} mutableCopy];
     NSMutableDictionary *itemTwo = [@{ kTitleKey : @"从",
                                        kDateKey : [NSDate date] } mutableCopy];
     NSMutableDictionary *itemThree = [@{ kTitleKey : @"到",
@@ -89,7 +93,8 @@ static NSString *kCheckWholeDayCellID = @"checkWholeDayCell";
     
     datePickCell = nil;
     detailReasonCell = nil;
-    self.detailReasonString = @"";
+    [[NSUserDefaults standardUserDefaults] setValue:nil forKey:kDetailReason];
+//    self.detailReasonString = @"";
     isCheckWholeDay = YES;
     
     // if the local changes while in the background, we need to be notified so we can update the date
@@ -107,6 +112,65 @@ static NSString *kCheckWholeDayCellID = @"checkWholeDayCell";
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:NSCurrentLocaleDidChangeNotification
                                                   object:nil];
+}
+
+- (IBAction)sendApplyAction:(id)sender {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+    NSString *startDate = [dateFormatter stringFromDate:[self.dataArray[1] valueForKey:kDateKey]];
+    NSString *endDate = [dateFormatter stringFromDate:[self.dataArray[2] valueForKey:kDateKey]];
+    if (isCheckWholeDay) {
+        startDate = [[startDate substringToIndex:10] stringByAppendingString:@" 08:00:00"];
+        endDate = [[endDate substringToIndex:10] stringByAppendingString:@" 18:00:00"];
+    }
+    NSTimeInterval timeInterval = [[dateFormatter dateFromString:endDate] timeIntervalSinceDate:[dateFormatter dateFromString:startDate]];
+    if (timeInterval <= 0) {
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:nil message:@"开始日期必须早于结束日期" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+        av.tag = 0;
+        [av show];
+        return;
+    }
+    NSString *urlString = [NSString stringWithFormat:@"%@/index.php?r=absenseApply/clientCreate",ServerUrl];
+    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
+    [request setPostValue:[Globals userId] forKey:@"userId"];
+    [request setPostValue:startDate forKey:@"startDate"];
+    [request setPostValue:endDate forKey:@"endDate"];
+    [request setPostValue:[[NSUserDefaults standardUserDefaults] valueForKey:kDetailReason] forKey:@"detail"];
+    [request setPostValue:[NSString stringWithFormat:@"%d",self.applyType] forKey:@"type"];
+    request.delegate = self;
+    [request startSynchronous];
+}
+
+- (void) requestFinished:(ASIHTTPRequest *)request
+{
+    NSLog(@"%@", request.responseString);
+    NSDictionary *responseDic = [NSJSONSerialization JSONObjectWithData:request.responseData options:kNilOptions error:nil];
+    int resultCode = [[responseDic valueForKey:@"resultCode"] intValue];
+    if (1 == resultCode) {
+        //申请成功
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:nil message:@"申请成功" delegate:self cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
+        av.tag = 1;
+        [av show];
+    }
+    else {
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:nil message:@"发生错误，申请失败" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+        av.tag = 0;
+        [av show];
+    }
+}
+
+- (void)requestFailed:(ASIHTTPRequest *)request
+{
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:nil message:@"网络错误" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+    av.tag = 0;
+    [av show];
+}
+
+-(void) alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (1 == alertView.tag) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 #pragma mark - Locale
@@ -343,7 +407,7 @@ NSUInteger DeviceSystemMajorVersion()
 //                textViewCell.detailReasonTextView.textColor = [UIColor lightGrayColor];
 //            }
 //            else{
-                textViewCell.detailReasonTextView.text = self.detailReasonString;
+                textViewCell.detailReasonTextView.text = [[NSUserDefaults standardUserDefaults] valueForKey:kDetailReason];
 //                textViewCell.detailReasonTextView.textColor = [UIColor blackColor];
 //            }
             return textViewCell;
@@ -495,7 +559,6 @@ NSUInteger DeviceSystemMajorVersion()
     if ([self hasInlineDatePicker])
     {
         // inline date picker: update the cell's date "above" the date picker cell
-        //
         targetedCellIndexPath = [NSIndexPath indexPathForRow:self.datePickerIndexPath.row - 1 inSection:0];
     }
     else
@@ -541,11 +604,15 @@ NSUInteger DeviceSystemMajorVersion()
     UISwitch *switcher = (id) sender;
     if ([switcher isOn]) {
         isCheckWholeDay = YES;
+        NSMutableDictionary *itemData = self.dataArray[0];
+        [itemData setValue:@"1" forKey:kWholeDay];
         [self.dateFormatter setDateStyle:NSDateFormatterMediumStyle];
         [self.dateFormatter setTimeStyle:NSDateFormatterNoStyle];
 //        _pickerView.datePickerMode = UIDatePickerModeDate;
     } else {
         isCheckWholeDay = NO;
+        NSMutableDictionary *itemData = self.dataArray[0];
+        [itemData setValue:@"0" forKey:kWholeDay];
         [self.dateFormatter setDateStyle:NSDateFormatterMediumStyle];
         [self.dateFormatter setTimeStyle:NSDateFormatterShortStyle];
 //        _pickerView.datePickerMode = UIDatePickerModeDateAndTime;

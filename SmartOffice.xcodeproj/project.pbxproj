@@ -13,11 +13,15 @@
 		381099EC18DADBBE00F01728 /* SvUDIDTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 381099EA18DADBBE00F01728 /* SvUDIDTools.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		381099EE18DAE35D00F01728 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 381099ED18DAE35D00F01728 /* Security.framework */; };
 		381ED4E718C6C74D0048AC13 /* SignProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 381ED4E618C6C74D0048AC13 /* SignProgressView.m */; };
+		38317D2018F3FB2500358C28 /* PersonalInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38317D1F18F3FB2500358C28 /* PersonalInfoTableViewController.m */; };
+		38351ADE18ED49D400AA17F6 /* SmartOffice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 38351ADC18ED49D400AA17F6 /* SmartOffice.xcdatamodeld */; };
+		38351AE218ED6CA100AA17F6 /* AbsenceApply.m in Sources */ = {isa = PBXBuildFile; fileRef = 38351AE118ED6CA000AA17F6 /* AbsenceApply.m */; };
+		38351AEA18EFF5BF00AA17F6 /* ToDoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38351AE918EFF5BF00AA17F6 /* ToDoCell.m */; };
 		3842956818C8B0A200FC5E28 /* CheckWholeDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3842956718C8B0A200FC5E28 /* CheckWholeDayCell.m */; };
 		385BD71C18C7150900F6A3BB /* graycircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 385BD71B18C7150900F6A3BB /* graycircle.png */; };
 		385BD71E18C71FEB00F6A3BB /* bluecircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 385BD71D18C71FEB00F6A3BB /* bluecircle.png */; };
 		385BD72C18C75AA500F6A3BB /* TextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 385BD72B18C75AA500F6A3BB /* TextViewCell.m */; };
-		385BD73118C75CB000F6A3BB /* AbsenseApplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 385BD73018C75CB000F6A3BB /* AbsenseApplyViewController.m */; };
+		385BD73118C75CB000F6A3BB /* AbsenceApplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 385BD73018C75CB000F6A3BB /* AbsenceApplyViewController.m */; };
 		386EEB3518BDD9D100500855 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 386EEB3418BDD9D100500855 /* Foundation.framework */; };
 		386EEB3718BDD9D100500855 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 386EEB3618BDD9D100500855 /* CoreGraphics.framework */; };
 		386EEB3918BDD9D100500855 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 386EEB3818BDD9D100500855 /* UIKit.framework */; };
@@ -42,6 +46,8 @@
 		3878CF4618CED66F00D3A671 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 3878CF3A18CED66F00D3A671 /* ASIInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3878CF4718CED66F00D3A671 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3878CF3C18CED66F00D3A671 /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3878CF4818CED66F00D3A671 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3878CF3F18CED66F00D3A671 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		387B197018DC16A8000144D4 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 387B196F18DC16A8000144D4 /* CoreBluetooth.framework */; };
+		387B197218DC16AF000144D4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 387B197118DC16AF000144D4 /* CoreLocation.framework */; };
 		388E83D918C43DA20047CF86 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 388E83D818C43DA20047CF86 /* MessageCell.xib */; };
 		388E83DE18C441800047CF86 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 388E83DD18C441800047CF86 /* MessageCell.m */; };
 		388E83E418C460F30047CF86 /* todo.png in Resources */ = {isa = PBXBuildFile; fileRef = 388E83E318C460F30047CF86 /* todo.png */; };
@@ -86,14 +92,21 @@
 		381099ED18DAE35D00F01728 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		381ED4E518C6C74D0048AC13 /* SignProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignProgressView.h; sourceTree = "<group>"; };
 		381ED4E618C6C74D0048AC13 /* SignProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignProgressView.m; sourceTree = "<group>"; };
+		38317D1E18F3FB2500358C28 /* PersonalInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalInfoTableViewController.h; sourceTree = "<group>"; };
+		38317D1F18F3FB2500358C28 /* PersonalInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalInfoTableViewController.m; sourceTree = "<group>"; };
+		38351ADD18ED49D400AA17F6 /* smartoffice.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = smartoffice.xcdatamodel; sourceTree = "<group>"; };
+		38351AE018ED6CA000AA17F6 /* AbsenceApply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbsenceApply.h; sourceTree = "<group>"; };
+		38351AE118ED6CA000AA17F6 /* AbsenceApply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbsenceApply.m; sourceTree = "<group>"; };
+		38351AE818EFF5BF00AA17F6 /* ToDoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoCell.h; sourceTree = "<group>"; };
+		38351AE918EFF5BF00AA17F6 /* ToDoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoCell.m; sourceTree = "<group>"; };
 		3842956618C8B0A200FC5E28 /* CheckWholeDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckWholeDayCell.h; sourceTree = "<group>"; };
 		3842956718C8B0A200FC5E28 /* CheckWholeDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckWholeDayCell.m; sourceTree = "<group>"; };
 		385BD71B18C7150900F6A3BB /* graycircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graycircle.png; sourceTree = "<group>"; };
 		385BD71D18C71FEB00F6A3BB /* bluecircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bluecircle.png; sourceTree = "<group>"; };
 		385BD72A18C75AA500F6A3BB /* TextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewCell.h; sourceTree = "<group>"; };
 		385BD72B18C75AA500F6A3BB /* TextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewCell.m; sourceTree = "<group>"; };
-		385BD72F18C75CB000F6A3BB /* AbsenseApplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbsenseApplyViewController.h; sourceTree = "<group>"; };
-		385BD73018C75CB000F6A3BB /* AbsenseApplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbsenseApplyViewController.m; sourceTree = "<group>"; };
+		385BD72F18C75CB000F6A3BB /* AbsenceApplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbsenceApplyViewController.h; sourceTree = "<group>"; };
+		385BD73018C75CB000F6A3BB /* AbsenceApplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbsenceApplyViewController.m; sourceTree = "<group>"; };
 		386EEB3118BDD9D100500855 /* SmartOffice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartOffice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		386EEB3418BDD9D100500855 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		386EEB3618BDD9D100500855 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -137,6 +150,8 @@
 		3878CF3D18CED66F00D3A671 /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIProgressDelegate.h; sourceTree = "<group>"; };
 		3878CF3E18CED66F00D3A671 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		3878CF3F18CED66F00D3A671 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		387B196F18DC16A8000144D4 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		387B197118DC16AF000144D4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		388E83D818C43DA20047CF86 /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		388E83DC18C441800047CF86 /* MessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
 		388E83DD18C441800047CF86 /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
@@ -169,6 +184,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				387B197218DC16AF000144D4 /* CoreLocation.framework in Frameworks */,
+				387B197018DC16A8000144D4 /* CoreBluetooth.framework in Frameworks */,
 				381099EE18DAE35D00F01728 /* Security.framework in Frameworks */,
 				38C4C8AD18D93DA90084C478 /* AdSupport.framework in Frameworks */,
 				38F7667C18CF000D00228F1C /* CFNetwork.framework in Frameworks */,
@@ -196,19 +213,101 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		385BD72918C75A4E00F6A3BB /* AbsenceApply */ = {
+		38317D2118F4D84A00358C28 /* iPad */ = {
 			isa = PBXGroup;
 			children = (
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
+		38351ADF18ED6C2C00AA17F6 /* Model and Model Class */ = {
+			isa = PBXGroup;
+			children = (
+				38351ADC18ED49D400AA17F6 /* SmartOffice.xcdatamodeld */,
+				38351AE018ED6CA000AA17F6 /* AbsenceApply.h */,
+				38351AE118ED6CA000AA17F6 /* AbsenceApply.m */,
+			);
+			name = "Model and Model Class";
+			sourceTree = "<group>";
+		};
+		38351AE318ED6CF400AA17F6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				381099E018DA868A00F01728 /* LoginViewController.h */,
+				381099E118DA868A00F01728 /* LoginViewController.m */,
+				386EEB4C18BDD9D100500855 /* AttendanceViewController.h */,
+				386EEB4D18BDD9D100500855 /* AttendanceViewController.m */,
+				386EEB4918BDD9D100500855 /* MessageViewController.h */,
+				386EEB4A18BDD9D100500855 /* MessageViewController.m */,
+				38ADAC2018BF170300FD98A7 /* MoreViewController.h */,
+				38ADAC2118BF170300FD98A7 /* MoreViewController.m */,
+				385BD72F18C75CB000F6A3BB /* AbsenceApplyViewController.h */,
+				385BD73018C75CB000F6A3BB /* AbsenceApplyViewController.m */,
+				38317D1E18F3FB2500358C28 /* PersonalInfoTableViewController.h */,
+				38317D1F18F3FB2500358C28 /* PersonalInfoTableViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		38351AE418ED6D0700AA17F6 /* Reference Class */ = {
+			isa = PBXGroup;
+			children = (
+				388E83F818C4B5D40047CF86 /* PullRefreshTableViewController.h */,
+				388E83F918C4B5D40047CF86 /* PullRefreshTableViewController.m */,
+				381099EB18DADBBE00F01728 /* SvUDIDTools.h */,
+				381099EA18DADBBE00F01728 /* SvUDIDTools.m */,
+				381ED4E518C6C74D0048AC13 /* SignProgressView.h */,
+				381ED4E618C6C74D0048AC13 /* SignProgressView.m */,
+			);
+			name = "Reference Class";
+			sourceTree = "<group>";
+		};
+		38351AE518ED6D4700AA17F6 /* TableView Cells */ = {
+			isa = PBXGroup;
+			children = (
+				388E83DC18C441800047CF86 /* MessageCell.h */,
+				388E83DD18C441800047CF86 /* MessageCell.m */,
+				388E83D818C43DA20047CF86 /* MessageCell.xib */,
 				385BD72A18C75AA500F6A3BB /* TextViewCell.h */,
 				385BD72B18C75AA500F6A3BB /* TextViewCell.m */,
-				385BD72F18C75CB000F6A3BB /* AbsenseApplyViewController.h */,
-				385BD73018C75CB000F6A3BB /* AbsenseApplyViewController.m */,
 				3842956618C8B0A200FC5E28 /* CheckWholeDayCell.h */,
 				3842956718C8B0A200FC5E28 /* CheckWholeDayCell.m */,
 				38DB5F1218C8B8D7008C2085 /* DatePickerCell.h */,
 				38DB5F1318C8B8D7008C2085 /* DatePickerCell.m */,
+				38351AE818EFF5BF00AA17F6 /* ToDoCell.h */,
+				38351AE918EFF5BF00AA17F6 /* ToDoCell.m */,
 			);
-			name = AbsenceApply;
+			name = "TableView Cells";
+			sourceTree = "<group>";
+		};
+		38351AE618ED6D8700AA17F6 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				386EEB4318BDD9D100500855 /* AppDelegate.h */,
+				386EEB4418BDD9D100500855 /* AppDelegate.m */,
+				381099E318DA88EC00F01728 /* Globals.h */,
+				381099E418DA88EC00F01728 /* Globals.m */,
+				386EEB4618BDD9D100500855 /* Main.storyboard */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		38351AE718ED6DD300AA17F6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				388E83FD18C573B30047CF86 /* sign.png */,
+				388E83FB18C4B8650047CF86 /* arrow.png */,
+				388E83EB18C46B080047CF86 /* more@2x.png */,
+				385BD71B18C7150900F6A3BB /* graycircle.png */,
+				388E83EC18C46B080047CF86 /* message@2x.png */,
+				385BD71D18C71FEB00F6A3BB /* bluecircle.png */,
+				388E83ED18C46B080047CF86 /* attendance@2x.png */,
+				388E83E918C469960047CF86 /* announcement.png */,
+				388E83E318C460F30047CF86 /* todo.png */,
+				388E83E718C466740047CF86 /* announcement1.png */,
+				388E83E518C4664A0047CF86 /* notification.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		386EEB2818BDD9D100500855 = {
@@ -233,6 +332,8 @@
 		386EEB3318BDD9D100500855 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				387B197118DC16AF000144D4 /* CoreLocation.framework */,
+				387B196F18DC16A8000144D4 /* CoreBluetooth.framework */,
 				381099ED18DAE35D00F01728 /* Security.framework */,
 				38C4C8AC18D93DA90084C478 /* AdSupport.framework */,
 				38F7667B18CF000D00228F1C /* CFNetwork.framework */,
@@ -252,32 +353,16 @@
 		386EEB3A18BDD9D100500855 /* SmartOffice */ = {
 			isa = PBXGroup;
 			children = (
-				386EEB4318BDD9D100500855 /* AppDelegate.h */,
-				386EEB4418BDD9D100500855 /* AppDelegate.m */,
-				381099EB18DADBBE00F01728 /* SvUDIDTools.h */,
-				381099EA18DADBBE00F01728 /* SvUDIDTools.m */,
+				38351AE618ED6D8700AA17F6 /* Application */,
+				38351AE318ED6CF400AA17F6 /* ViewControllers */,
+				38351ADF18ED6C2C00AA17F6 /* Model and Model Class */,
+				38351AE518ED6D4700AA17F6 /* TableView Cells */,
+				38351AE418ED6D0700AA17F6 /* Reference Class */,
 				3878CF2918CED66F00D3A671 /* ASIHTTPRequest */,
-				385BD72918C75A4E00F6A3BB /* AbsenceApply */,
-				388E83F818C4B5D40047CF86 /* PullRefreshTableViewController.h */,
-				388E83F918C4B5D40047CF86 /* PullRefreshTableViewController.m */,
-				381ED4E518C6C74D0048AC13 /* SignProgressView.h */,
-				381ED4E618C6C74D0048AC13 /* SignProgressView.m */,
-				386EEB4918BDD9D100500855 /* MessageViewController.h */,
-				386EEB4A18BDD9D100500855 /* MessageViewController.m */,
-				388E83DC18C441800047CF86 /* MessageCell.h */,
-				388E83DD18C441800047CF86 /* MessageCell.m */,
-				386EEB4C18BDD9D100500855 /* AttendanceViewController.h */,
-				386EEB4D18BDD9D100500855 /* AttendanceViewController.m */,
-				38ADAC2018BF170300FD98A7 /* MoreViewController.h */,
-				38ADAC2118BF170300FD98A7 /* MoreViewController.m */,
-				388E83D818C43DA20047CF86 /* MessageCell.xib */,
-				386EEB4618BDD9D100500855 /* Main.storyboard */,
-				386EEB4F18BDD9D100500855 /* Images.xcassets */,
+				38351AE718ED6DD300AA17F6 /* Resources */,
+				38317D2118F4D84A00358C28 /* iPad */,
 				386EEB3B18BDD9D100500855 /* Supporting Files */,
-				381099E018DA868A00F01728 /* LoginViewController.h */,
-				381099E118DA868A00F01728 /* LoginViewController.m */,
-				381099E318DA88EC00F01728 /* Globals.h */,
-				381099E418DA88EC00F01728 /* Globals.m */,
+				386EEB4F18BDD9D100500855 /* Images.xcassets */,
 			);
 			path = SmartOffice;
 			sourceTree = "<group>";
@@ -286,17 +371,6 @@
 			isa = PBXGroup;
 			children = (
 				381099E818DAD8AB00F01728 /* KeychainAccessGroups.plist */,
-				388E83FD18C573B30047CF86 /* sign.png */,
-				388E83FB18C4B8650047CF86 /* arrow.png */,
-				388E83EB18C46B080047CF86 /* more@2x.png */,
-				385BD71B18C7150900F6A3BB /* graycircle.png */,
-				388E83EC18C46B080047CF86 /* message@2x.png */,
-				385BD71D18C71FEB00F6A3BB /* bluecircle.png */,
-				388E83ED18C46B080047CF86 /* attendance@2x.png */,
-				388E83E918C469960047CF86 /* announcement.png */,
-				388E83E318C460F30047CF86 /* todo.png */,
-				388E83E718C466740047CF86 /* announcement1.png */,
-				388E83E518C4664A0047CF86 /* notification.png */,
 				386EEB3C18BDD9D100500855 /* SmartOffice-Info.plist */,
 				386EEB3D18BDD9D100500855 /* InfoPlist.strings */,
 				386EEB4018BDD9D100500855 /* main.m */,
@@ -473,8 +547,11 @@
 				3878CF4718CED66F00D3A671 /* ASINetworkQueue.m in Sources */,
 				386EEB4E18BDD9D100500855 /* AttendanceViewController.m in Sources */,
 				386EEB4518BDD9D100500855 /* AppDelegate.m in Sources */,
+				38351AE218ED6CA100AA17F6 /* AbsenceApply.m in Sources */,
+				38317D2018F3FB2500358C28 /* PersonalInfoTableViewController.m in Sources */,
 				3878CF4318CED66F00D3A671 /* ASIDownloadCache.m in Sources */,
 				3878CF4618CED66F00D3A671 /* ASIInputStream.m in Sources */,
+				38351ADE18ED49D400AA17F6 /* SmartOffice.xcdatamodeld in Sources */,
 				381099E518DA88EC00F01728 /* Globals.m in Sources */,
 				386EEB4B18BDD9D100500855 /* MessageViewController.m in Sources */,
 				3878CF4818CED66F00D3A671 /* Reachability.m in Sources */,
@@ -483,11 +560,12 @@
 				388E83DE18C441800047CF86 /* MessageCell.m in Sources */,
 				3878CF4518CED66F00D3A671 /* ASIHTTPRequest.m in Sources */,
 				386EEB4118BDD9D100500855 /* main.m in Sources */,
-				385BD73118C75CB000F6A3BB /* AbsenseApplyViewController.m in Sources */,
+				385BD73118C75CB000F6A3BB /* AbsenceApplyViewController.m in Sources */,
 				38ADAC2218BF170300FD98A7 /* MoreViewController.m in Sources */,
 				38DB5F1418C8B8D7008C2085 /* DatePickerCell.m in Sources */,
 				3878CF4418CED66F00D3A671 /* ASIFormDataRequest.m in Sources */,
 				381099E218DA868A00F01728 /* LoginViewController.m in Sources */,
+				38351AEA18EFF5BF00AA17F6 /* ToDoCell.m in Sources */,
 				3878CF4218CED66F00D3A671 /* ASIDataDecompressor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -619,8 +697,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SmartOffice/SmartOffice-Prefix.pch";
 				INFOPLIST_FILE = "SmartOffice/SmartOffice-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -636,8 +716,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SmartOffice/SmartOffice-Prefix.pch";
 				INFOPLIST_FILE = "SmartOffice/SmartOffice-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -713,6 +795,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		38351ADC18ED49D400AA17F6 /* SmartOffice.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				38351ADD18ED49D400AA17F6 /* smartoffice.xcdatamodel */,
+			);
+			currentVersion = 38351ADD18ED49D400AA17F6 /* smartoffice.xcdatamodel */;
+			name = SmartOffice.xcdatamodeld;
+			path = smartoffice.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 386EEB2918BDD9D100500855 /* Project object */;
 }
