@@ -60,7 +60,6 @@ NSString *noSignTime = @"--:--:--";
     //检测是否是新的一天
     NSString *signDate = [Globals signDate];
     [self.dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSLog(@"%@", [NSDate date]);
     NSString *today = [self.dateFormatter stringFromDate:[NSDate date]];
     if (![signDate isEqualToString:today])
     {
@@ -82,7 +81,7 @@ NSString *noSignTime = @"--:--:--";
         NSTimeInterval time = 0;
         if (nil == leaveSignTime)
         {
-            [self.dateFormatter setDateFormat:@"hh:mm:ss"];
+            [self.dateFormatter setDateFormat:@"HH:mm:ss"];
             NSString *currentTimeStr = [self.dateFormatter stringFromDate:[NSDate date]];
             time = [self calTimeIntervalFromTime:comeSignTime toTime:currentTimeStr];
         }
@@ -107,10 +106,10 @@ NSString *noSignTime = @"--:--:--";
     self.locationManager.delegate = self;
     self.dateFormatter = [[NSDateFormatter alloc] init];
 }
-//计算时间差，时间的格式为"hh:mm:ss"
+//计算时间差，时间的格式为"HH:mm:ss"
 - (NSTimeInterval) calTimeIntervalFromTime:(NSString *)fromTime toTime:(NSString *)toTime
 {
-    [self.dateFormatter setDateFormat:@"hh:mm:ss"];
+    [self.dateFormatter setDateFormat:@"HH:mm:ss"];
     return [[self.dateFormatter dateFromString:toTime] timeIntervalSinceDate:[self.dateFormatter dateFromString:fromTime]];
 }
 
@@ -161,7 +160,7 @@ NSString *noSignTime = @"--:--:--";
             //签到成功后的操作：改变按钮的文字、记录时间到NSUserDefaults、修改工时label
             [self showStatusMsg:nil];
             [self.signBtn setTitle:@"下班签退" forState:UIControlStateNormal] ;
-            [self.dateFormatter setDateFormat:@"hh:mm:ss"];
+            [self.dateFormatter setDateFormat:@"HH:mm:ss"];
             NSString *signTime = [self.dateFormatter stringFromDate:[NSDate date]];
             NSString *comeSignTime = [[NSUserDefaults standardUserDefaults] valueForKey:kComeSignTime];
             if (nil == comeSignTime)
@@ -320,5 +319,6 @@ NSString *noSignTime = @"--:--:--";
     if ([destViewController respondsToSelector:@selector(setApplyType:)]) {
         destViewController.applyType = [selectedIndexPath row] + 1;
     }
+    destViewController.hidesBottomBarWhenPushed = YES;
 }
 @end

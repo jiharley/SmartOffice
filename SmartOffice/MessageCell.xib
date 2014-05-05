@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aq7-Ae-zrB">
-                        <rect key="frame" x="60" y="10" width="190" height="25"/>
+                        <rect key="frame" x="60" y="10" width="170" height="25"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -37,12 +37,17 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star.png" translatesAutoresizingMaskIntoConstraints="NO" id="oE5-1u-YSN">
+                        <rect key="frame" x="235" y="15" width="15" height="15"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
                 </subviews>
             </tableViewCellContentView>
             <connections>
                 <outlet property="contentLable" destination="dZe-iH-so5" id="QbC-El-Y5O"/>
                 <outlet property="dateLable" destination="f5L-qf-f5D" id="wZQ-d5-VsU"/>
                 <outlet property="iconImageView" destination="yJr-7F-33C" id="cX3-Ew-hK2"/>
+                <outlet property="starImage" destination="oE5-1u-YSN" id="N90-6Y-8D4"/>
                 <outlet property="titleLable" destination="aq7-Ae-zrB" id="qZa-LN-Rgk"/>
             </connections>
         </tableViewCell>
@@ -50,5 +55,6 @@
     </objects>
     <resources>
         <image name="notification.png" width="100" height="100"/>
+        <image name="star.png" width="64" height="64"/>
     </resources>
 </document>

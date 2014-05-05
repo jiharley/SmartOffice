@@ -10,7 +10,9 @@
 #import "ASIHTTPRequest/ASIFormDataRequest.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, ASIHTTPRequestDelegate>
-
+{
+    BOOL isActive;
+}
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) NSString *deviceTokenStr;
 

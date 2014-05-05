@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		380860FE1904AAD400ACB94D /* Announcement.m in Sources */ = {isa = PBXBuildFile; fileRef = 380860FD1904AAD400ACB94D /* Announcement.m */; };
 		381099E218DA868A00F01728 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 381099E118DA868A00F01728 /* LoginViewController.m */; };
 		381099E518DA88EC00F01728 /* Globals.m in Sources */ = {isa = PBXBuildFile; fileRef = 381099E418DA88EC00F01728 /* Globals.m */; };
 		381099E918DAD8AB00F01728 /* KeychainAccessGroups.plist in Resources */ = {isa = PBXBuildFile; fileRef = 381099E818DAD8AB00F01728 /* KeychainAccessGroups.plist */; };
@@ -15,13 +16,13 @@
 		381ED4E718C6C74D0048AC13 /* SignProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 381ED4E618C6C74D0048AC13 /* SignProgressView.m */; };
 		38317D2018F3FB2500358C28 /* PersonalInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38317D1F18F3FB2500358C28 /* PersonalInfoTableViewController.m */; };
 		38351ADE18ED49D400AA17F6 /* SmartOffice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 38351ADC18ED49D400AA17F6 /* SmartOffice.xcdatamodeld */; };
-		38351AE218ED6CA100AA17F6 /* AbsenceApply.m in Sources */ = {isa = PBXBuildFile; fileRef = 38351AE118ED6CA000AA17F6 /* AbsenceApply.m */; };
 		38351AEA18EFF5BF00AA17F6 /* ToDoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38351AE918EFF5BF00AA17F6 /* ToDoCell.m */; };
 		3842956818C8B0A200FC5E28 /* CheckWholeDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3842956718C8B0A200FC5E28 /* CheckWholeDayCell.m */; };
 		385BD71C18C7150900F6A3BB /* graycircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 385BD71B18C7150900F6A3BB /* graycircle.png */; };
 		385BD71E18C71FEB00F6A3BB /* bluecircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 385BD71D18C71FEB00F6A3BB /* bluecircle.png */; };
 		385BD72C18C75AA500F6A3BB /* TextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 385BD72B18C75AA500F6A3BB /* TextViewCell.m */; };
 		385BD73118C75CB000F6A3BB /* AbsenceApplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 385BD73018C75CB000F6A3BB /* AbsenceApplyViewController.m */; };
+		386D107518FF9D33006A44BB /* MessageTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 386D107418FF9D33006A44BB /* MessageTitleCell.m */; };
 		386EEB3518BDD9D100500855 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 386EEB3418BDD9D100500855 /* Foundation.framework */; };
 		386EEB3718BDD9D100500855 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 386EEB3618BDD9D100500855 /* CoreGraphics.framework */; };
 		386EEB3918BDD9D100500855 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 386EEB3818BDD9D100500855 /* UIKit.framework */; };
@@ -62,8 +63,20 @@
 		388E83FC18C4B8650047CF86 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 388E83FB18C4B8650047CF86 /* arrow.png */; };
 		388E83FE18C573B30047CF86 /* sign.png in Resources */ = {isa = PBXBuildFile; fileRef = 388E83FD18C573B30047CF86 /* sign.png */; };
 		38ADAC2218BF170300FD98A7 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38ADAC2118BF170300FD98A7 /* MoreViewController.m */; };
+		38BDAF5E18F54A160064B16D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38BDAF5D18F54A160064B16D /* AudioToolbox.framework */; };
+		38BDAF6118F58A320064B16D /* AbsenceApply.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BDAF6018F58A320064B16D /* AbsenceApply.m */; };
+		38BDAF6418F643960064B16D /* ToDoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BDAF6318F643960064B16D /* ToDoDetailViewController.m */; };
 		38C4C8AD18D93DA90084C478 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C4C8AC18D93DA90084C478 /* AdSupport.framework */; };
+		38CE91F118FF72750049DB82 /* MessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38CE91F018FF72750049DB82 /* MessageDetailViewController.m */; };
+		38CE91F418FF83A40049DB82 /* VaribleTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38CE91F318FF83A40049DB82 /* VaribleTextCell.m */; };
 		38DB5F1418C8B8D7008C2085 /* DatePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DB5F1318C8B8D7008C2085 /* DatePickerCell.m */; };
+		38E0444219089F220064A96F /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E0444119089F220064A96F /* star.png */; };
+		38E044451908A0B80064A96F /* Inform.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E044441908A0B80064A96F /* Inform.m */; };
+		38E04449190DE2CA0064A96F /* ContractTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E04448190DE2CA0064A96F /* ContractTableViewController.m */; };
+		38E0444C190DEF440064A96F /* ContractProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E0444B190DEF440064A96F /* ContractProgressViewController.m */; };
+		38E0444F190E218A0064A96F /* ReimTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E0444E190E218A0064A96F /* ReimTableViewController.m */; };
+		38E04452190E234B0064A96F /* ReimProgressTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E04451190E234B0064A96F /* ReimProgressTableViewController.m */; };
+		38E044581915D1CA0064A96F /* WaitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E044571915D1CA0064A96F /* WaitView.m */; };
 		38F7667418CEFFDA00228F1C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F7667318CEFFDA00228F1C /* CoreData.framework */; };
 		38F7667618CEFFEE00228F1C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F7667518CEFFEE00228F1C /* libz.dylib */; };
 		38F7667818CEFFF900228F1C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F7667718CEFFF900228F1C /* MobileCoreServices.framework */; };
@@ -82,6 +95,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		380860FC1904AAD400ACB94D /* Announcement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Announcement.h; sourceTree = "<group>"; };
+		380860FD1904AAD400ACB94D /* Announcement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Announcement.m; sourceTree = "<group>"; };
 		381099E018DA868A00F01728 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		381099E118DA868A00F01728 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		381099E318DA88EC00F01728 /* Globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Globals.h; sourceTree = "<group>"; };
@@ -95,8 +110,6 @@
 		38317D1E18F3FB2500358C28 /* PersonalInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalInfoTableViewController.h; sourceTree = "<group>"; };
 		38317D1F18F3FB2500358C28 /* PersonalInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalInfoTableViewController.m; sourceTree = "<group>"; };
 		38351ADD18ED49D400AA17F6 /* smartoffice.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = smartoffice.xcdatamodel; sourceTree = "<group>"; };
-		38351AE018ED6CA000AA17F6 /* AbsenceApply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbsenceApply.h; sourceTree = "<group>"; };
-		38351AE118ED6CA000AA17F6 /* AbsenceApply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbsenceApply.m; sourceTree = "<group>"; };
 		38351AE818EFF5BF00AA17F6 /* ToDoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoCell.h; sourceTree = "<group>"; };
 		38351AE918EFF5BF00AA17F6 /* ToDoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoCell.m; sourceTree = "<group>"; };
 		3842956618C8B0A200FC5E28 /* CheckWholeDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckWholeDayCell.h; sourceTree = "<group>"; };
@@ -107,6 +120,8 @@
 		385BD72B18C75AA500F6A3BB /* TextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewCell.m; sourceTree = "<group>"; };
 		385BD72F18C75CB000F6A3BB /* AbsenceApplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbsenceApplyViewController.h; sourceTree = "<group>"; };
 		385BD73018C75CB000F6A3BB /* AbsenceApplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbsenceApplyViewController.m; sourceTree = "<group>"; };
+		386D107318FF9D33006A44BB /* MessageTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTitleCell.h; sourceTree = "<group>"; };
+		386D107418FF9D33006A44BB /* MessageTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTitleCell.m; sourceTree = "<group>"; };
 		386EEB3118BDD9D100500855 /* SmartOffice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartOffice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		386EEB3418BDD9D100500855 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		386EEB3618BDD9D100500855 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -169,9 +184,31 @@
 		388E83FD18C573B30047CF86 /* sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sign.png; sourceTree = "<group>"; };
 		38ADAC2018BF170300FD98A7 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
 		38ADAC2118BF170300FD98A7 /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
+		38BDAF5D18F54A160064B16D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		38BDAF5F18F58A320064B16D /* AbsenceApply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbsenceApply.h; sourceTree = "<group>"; };
+		38BDAF6018F58A320064B16D /* AbsenceApply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbsenceApply.m; sourceTree = "<group>"; };
+		38BDAF6218F643960064B16D /* ToDoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoDetailViewController.h; sourceTree = "<group>"; };
+		38BDAF6318F643960064B16D /* ToDoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoDetailViewController.m; sourceTree = "<group>"; };
 		38C4C8AC18D93DA90084C478 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		38CE91EF18FF72750049DB82 /* MessageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageDetailViewController.h; sourceTree = "<group>"; };
+		38CE91F018FF72750049DB82 /* MessageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageDetailViewController.m; sourceTree = "<group>"; };
+		38CE91F218FF83A40049DB82 /* VaribleTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VaribleTextCell.h; sourceTree = "<group>"; };
+		38CE91F318FF83A40049DB82 /* VaribleTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VaribleTextCell.m; sourceTree = "<group>"; };
 		38DB5F1218C8B8D7008C2085 /* DatePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerCell.h; sourceTree = "<group>"; };
 		38DB5F1318C8B8D7008C2085 /* DatePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerCell.m; sourceTree = "<group>"; };
+		38E0444119089F220064A96F /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		38E044431908A0B80064A96F /* Inform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Inform.h; sourceTree = "<group>"; };
+		38E044441908A0B80064A96F /* Inform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Inform.m; sourceTree = "<group>"; };
+		38E04447190DE2CA0064A96F /* ContractTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContractTableViewController.h; sourceTree = "<group>"; };
+		38E04448190DE2CA0064A96F /* ContractTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContractTableViewController.m; sourceTree = "<group>"; };
+		38E0444A190DEF440064A96F /* ContractProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContractProgressViewController.h; sourceTree = "<group>"; };
+		38E0444B190DEF440064A96F /* ContractProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContractProgressViewController.m; sourceTree = "<group>"; };
+		38E0444D190E218A0064A96F /* ReimTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReimTableViewController.h; sourceTree = "<group>"; };
+		38E0444E190E218A0064A96F /* ReimTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReimTableViewController.m; sourceTree = "<group>"; };
+		38E04450190E234B0064A96F /* ReimProgressTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReimProgressTableViewController.h; sourceTree = "<group>"; };
+		38E04451190E234B0064A96F /* ReimProgressTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReimProgressTableViewController.m; sourceTree = "<group>"; };
+		38E044561915D1CA0064A96F /* WaitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaitView.h; sourceTree = "<group>"; };
+		38E044571915D1CA0064A96F /* WaitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaitView.m; sourceTree = "<group>"; };
 		38F7667318CEFFDA00228F1C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		38F7667518CEFFEE00228F1C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		38F7667718CEFFF900228F1C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -184,6 +221,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38BDAF5E18F54A160064B16D /* AudioToolbox.framework in Frameworks */,
 				387B197218DC16AF000144D4 /* CoreLocation.framework in Frameworks */,
 				387B197018DC16A8000144D4 /* CoreBluetooth.framework in Frameworks */,
 				381099EE18DAE35D00F01728 /* Security.framework in Frameworks */,
@@ -224,8 +262,12 @@
 			isa = PBXGroup;
 			children = (
 				38351ADC18ED49D400AA17F6 /* SmartOffice.xcdatamodeld */,
-				38351AE018ED6CA000AA17F6 /* AbsenceApply.h */,
-				38351AE118ED6CA000AA17F6 /* AbsenceApply.m */,
+				38BDAF5F18F58A320064B16D /* AbsenceApply.h */,
+				38BDAF6018F58A320064B16D /* AbsenceApply.m */,
+				380860FC1904AAD400ACB94D /* Announcement.h */,
+				380860FD1904AAD400ACB94D /* Announcement.m */,
+				38E044431908A0B80064A96F /* Inform.h */,
+				38E044441908A0B80064A96F /* Inform.m */,
 			);
 			name = "Model and Model Class";
 			sourceTree = "<group>";
@@ -233,18 +275,11 @@
 		38351AE318ED6CF400AA17F6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				38E04455190E24260064A96F /* MoreTab */,
+				38E04454190E24150064A96F /* AttendanceTab */,
+				38E04453190E23FF0064A96F /* MessageTab */,
 				381099E018DA868A00F01728 /* LoginViewController.h */,
 				381099E118DA868A00F01728 /* LoginViewController.m */,
-				386EEB4C18BDD9D100500855 /* AttendanceViewController.h */,
-				386EEB4D18BDD9D100500855 /* AttendanceViewController.m */,
-				386EEB4918BDD9D100500855 /* MessageViewController.h */,
-				386EEB4A18BDD9D100500855 /* MessageViewController.m */,
-				38ADAC2018BF170300FD98A7 /* MoreViewController.h */,
-				38ADAC2118BF170300FD98A7 /* MoreViewController.m */,
-				385BD72F18C75CB000F6A3BB /* AbsenceApplyViewController.h */,
-				385BD73018C75CB000F6A3BB /* AbsenceApplyViewController.m */,
-				38317D1E18F3FB2500358C28 /* PersonalInfoTableViewController.h */,
-				38317D1F18F3FB2500358C28 /* PersonalInfoTableViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -276,6 +311,10 @@
 				38DB5F1318C8B8D7008C2085 /* DatePickerCell.m */,
 				38351AE818EFF5BF00AA17F6 /* ToDoCell.h */,
 				38351AE918EFF5BF00AA17F6 /* ToDoCell.m */,
+				38CE91F218FF83A40049DB82 /* VaribleTextCell.h */,
+				38CE91F318FF83A40049DB82 /* VaribleTextCell.m */,
+				386D107318FF9D33006A44BB /* MessageTitleCell.h */,
+				386D107418FF9D33006A44BB /* MessageTitleCell.m */,
 			);
 			name = "TableView Cells";
 			sourceTree = "<group>";
@@ -288,6 +327,8 @@
 				381099E318DA88EC00F01728 /* Globals.h */,
 				381099E418DA88EC00F01728 /* Globals.m */,
 				386EEB4618BDD9D100500855 /* Main.storyboard */,
+				38E044561915D1CA0064A96F /* WaitView.h */,
+				38E044571915D1CA0064A96F /* WaitView.m */,
 			);
 			name = Application;
 			sourceTree = "<group>";
@@ -295,6 +336,7 @@
 		38351AE718ED6DD300AA17F6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				38E0444119089F220064A96F /* star.png */,
 				388E83FD18C573B30047CF86 /* sign.png */,
 				388E83FB18C4B8650047CF86 /* arrow.png */,
 				388E83EB18C46B080047CF86 /* more@2x.png */,
@@ -332,6 +374,7 @@
 		386EEB3318BDD9D100500855 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				38BDAF5D18F54A160064B16D /* AudioToolbox.framework */,
 				387B197118DC16AF000144D4 /* CoreLocation.framework */,
 				387B196F18DC16A8000144D4 /* CoreBluetooth.framework */,
 				381099ED18DAE35D00F01728 /* Security.framework */,
@@ -426,6 +469,49 @@
 			path = ASIHTTPRequest;
 			sourceTree = "<group>";
 		};
+		38E04453190E23FF0064A96F /* MessageTab */ = {
+			isa = PBXGroup;
+			children = (
+				386EEB4918BDD9D100500855 /* MessageViewController.h */,
+				386EEB4A18BDD9D100500855 /* MessageViewController.m */,
+				38BDAF6218F643960064B16D /* ToDoDetailViewController.h */,
+				38BDAF6318F643960064B16D /* ToDoDetailViewController.m */,
+				38CE91EF18FF72750049DB82 /* MessageDetailViewController.h */,
+				38CE91F018FF72750049DB82 /* MessageDetailViewController.m */,
+			);
+			name = MessageTab;
+			sourceTree = "<group>";
+		};
+		38E04454190E24150064A96F /* AttendanceTab */ = {
+			isa = PBXGroup;
+			children = (
+				386EEB4C18BDD9D100500855 /* AttendanceViewController.h */,
+				386EEB4D18BDD9D100500855 /* AttendanceViewController.m */,
+				385BD72F18C75CB000F6A3BB /* AbsenceApplyViewController.h */,
+				385BD73018C75CB000F6A3BB /* AbsenceApplyViewController.m */,
+			);
+			name = AttendanceTab;
+			sourceTree = "<group>";
+		};
+		38E04455190E24260064A96F /* MoreTab */ = {
+			isa = PBXGroup;
+			children = (
+				38ADAC2018BF170300FD98A7 /* MoreViewController.h */,
+				38ADAC2118BF170300FD98A7 /* MoreViewController.m */,
+				38317D1E18F3FB2500358C28 /* PersonalInfoTableViewController.h */,
+				38317D1F18F3FB2500358C28 /* PersonalInfoTableViewController.m */,
+				38E04447190DE2CA0064A96F /* ContractTableViewController.h */,
+				38E04448190DE2CA0064A96F /* ContractTableViewController.m */,
+				38E0444A190DEF440064A96F /* ContractProgressViewController.h */,
+				38E0444B190DEF440064A96F /* ContractProgressViewController.m */,
+				38E0444D190E218A0064A96F /* ReimTableViewController.h */,
+				38E0444E190E218A0064A96F /* ReimTableViewController.m */,
+				38E04450190E234B0064A96F /* ReimProgressTableViewController.h */,
+				38E04451190E234B0064A96F /* ReimProgressTableViewController.m */,
+			);
+			name = MoreTab;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -514,6 +600,7 @@
 				388E83F018C46B080047CF86 /* attendance@2x.png in Resources */,
 				386EEB3F18BDD9D100500855 /* InfoPlist.strings in Resources */,
 				388E83FC18C4B8650047CF86 /* arrow.png in Resources */,
+				38E0444219089F220064A96F /* star.png in Resources */,
 				385BD71E18C71FEB00F6A3BB /* bluecircle.png in Resources */,
 				388E83E418C460F30047CF86 /* todo.png in Resources */,
 				388E83E818C466740047CF86 /* announcement1.png in Resources */,
@@ -539,34 +626,45 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				386D107518FF9D33006A44BB /* MessageTitleCell.m in Sources */,
+				38BDAF6118F58A320064B16D /* AbsenceApply.m in Sources */,
+				38E0444C190DEF440064A96F /* ContractProgressViewController.m in Sources */,
 				381099EC18DADBBE00F01728 /* SvUDIDTools.m in Sources */,
+				380860FE1904AAD400ACB94D /* Announcement.m in Sources */,
 				385BD72C18C75AA500F6A3BB /* TextViewCell.m in Sources */,
 				388E83FA18C4B5D40047CF86 /* PullRefreshTableViewController.m in Sources */,
 				3878CF4118CED66F00D3A671 /* ASIDataCompressor.m in Sources */,
 				381ED4E718C6C74D0048AC13 /* SignProgressView.m in Sources */,
 				3878CF4718CED66F00D3A671 /* ASINetworkQueue.m in Sources */,
+				38E0444F190E218A0064A96F /* ReimTableViewController.m in Sources */,
 				386EEB4E18BDD9D100500855 /* AttendanceViewController.m in Sources */,
 				386EEB4518BDD9D100500855 /* AppDelegate.m in Sources */,
-				38351AE218ED6CA100AA17F6 /* AbsenceApply.m in Sources */,
 				38317D2018F3FB2500358C28 /* PersonalInfoTableViewController.m in Sources */,
 				3878CF4318CED66F00D3A671 /* ASIDownloadCache.m in Sources */,
 				3878CF4618CED66F00D3A671 /* ASIInputStream.m in Sources */,
 				38351ADE18ED49D400AA17F6 /* SmartOffice.xcdatamodeld in Sources */,
 				381099E518DA88EC00F01728 /* Globals.m in Sources */,
 				386EEB4B18BDD9D100500855 /* MessageViewController.m in Sources */,
+				38BDAF6418F643960064B16D /* ToDoDetailViewController.m in Sources */,
 				3878CF4818CED66F00D3A671 /* Reachability.m in Sources */,
+				38E044581915D1CA0064A96F /* WaitView.m in Sources */,
+				38CE91F118FF72750049DB82 /* MessageDetailViewController.m in Sources */,
 				3842956818C8B0A200FC5E28 /* CheckWholeDayCell.m in Sources */,
 				3878CF4018CED66F00D3A671 /* ASIAuthenticationDialog.m in Sources */,
 				388E83DE18C441800047CF86 /* MessageCell.m in Sources */,
+				38CE91F418FF83A40049DB82 /* VaribleTextCell.m in Sources */,
 				3878CF4518CED66F00D3A671 /* ASIHTTPRequest.m in Sources */,
 				386EEB4118BDD9D100500855 /* main.m in Sources */,
 				385BD73118C75CB000F6A3BB /* AbsenceApplyViewController.m in Sources */,
 				38ADAC2218BF170300FD98A7 /* MoreViewController.m in Sources */,
+				38E04449190DE2CA0064A96F /* ContractTableViewController.m in Sources */,
 				38DB5F1418C8B8D7008C2085 /* DatePickerCell.m in Sources */,
 				3878CF4418CED66F00D3A671 /* ASIFormDataRequest.m in Sources */,
 				381099E218DA868A00F01728 /* LoginViewController.m in Sources */,
 				38351AEA18EFF5BF00AA17F6 /* ToDoCell.m in Sources */,
+				38E044451908A0B80064A96F /* Inform.m in Sources */,
 				3878CF4218CED66F00D3A671 /* ASIDataDecompressor.m in Sources */,
+				38E04452190E234B0064A96F /* ReimProgressTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

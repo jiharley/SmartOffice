@@ -1,8 +1,8 @@
 //
-//  AbsenseApply.h
+//  AbsenceApply.h
 //  SmartOffice
 //
-//  Created by Peng Ji on 14-4-3.
+//  Created by Peng Ji on 14-4-9.
 //  Copyright (c) 2014年 WMLab. All rights reserved.
 //
 
@@ -13,14 +13,14 @@
 @interface AbsenceApply : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * applyId;
-@property (nonatomic, retain) NSNumber * userId;
+@property (nonatomic, retain) NSNumber * checked;
+@property (nonatomic, retain) NSString * detail;
+@property (nonatomic, retain) NSDate * endDate;
+@property (nonatomic, retain) NSString * feedback;
 @property (nonatomic, retain) NSString * realName;
 @property (nonatomic, retain) NSDate * startDate;
-@property (nonatomic, retain) NSDate * endDate;
-@property (nonatomic, retain) NSString * detail;
-@property (nonatomic, retain) NSNumber * type;
 @property (nonatomic, retain) NSNumber * status;
-@property (nonatomic, retain) NSString * feedback;
-@property (nonatomic, retain) NSNumber * checked;
+@property (nonatomic, retain) NSNumber * type;
+@property (nonatomic, retain) NSNumber * userId;
 
 @end

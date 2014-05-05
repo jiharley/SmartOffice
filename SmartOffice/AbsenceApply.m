@@ -1,8 +1,8 @@
 //
-//  AbsenseApply.m
+//  AbsenceApply.m
 //  SmartOffice
 //
-//  Created by Peng Ji on 14-4-3.
+//  Created by Peng Ji on 14-4-9.
 //  Copyright (c) 2014年 WMLab. All rights reserved.
 //
 
@@ -12,14 +12,14 @@
 @implementation AbsenceApply
 
 @dynamic applyId;
-@dynamic userId;
+@dynamic checked;
+@dynamic detail;
+@dynamic endDate;
+@dynamic feedback;
 @dynamic realName;
 @dynamic startDate;
-@dynamic endDate;
-@dynamic detail;
-@dynamic type;
 @dynamic status;
-@dynamic feedback;
-@dynamic checked;
+@dynamic type;
+@dynamic userId;
 
 @end

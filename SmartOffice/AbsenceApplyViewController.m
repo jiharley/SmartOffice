@@ -116,7 +116,7 @@ static NSString *kCheckWholeDayCellID = @"checkWholeDayCell";
 
 - (IBAction)sendApplyAction:(id)sender {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString *startDate = [dateFormatter stringFromDate:[self.dataArray[1] valueForKey:kDateKey]];
     NSString *endDate = [dateFormatter stringFromDate:[self.dataArray[2] valueForKey:kDateKey]];
     if (isCheckWholeDay) {
@@ -153,7 +153,8 @@ static NSString *kCheckWholeDayCellID = @"checkWholeDayCell";
         [av show];
     }
     else {
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:nil message:@"发生错误，申请失败" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+        NSString *errorMsg = [responseDic valueForKey:@"message"];
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:nil message:errorMsg delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
         av.tag = 0;
         [av show];
     }

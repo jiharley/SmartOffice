@@ -64,12 +64,12 @@
         [Globals setUserId:[responseDic valueForKey:@"userId"]];
         [Globals setUsername:[responseDic valueForKey:@"userName"]];
         [Globals setUserInfo:responseDic];
-        if ([responseDic valueForKey:@"comeTime"]) {
+        if (![[responseDic valueForKey:@"comeTime"] isEqualToString:@""]) {
             NSString *today = [[responseDic valueForKey:@"comeTime"] substringToIndex:10];
             [Globals setSignDate:today];
             NSString *comeSignTime = [[responseDic valueForKey:@"comeTime"] substringFromIndex:11];
             [Globals setComeSignTime:comeSignTime];
-            if (![[responseDic valueForKey:@"leaveTime"] isKindOfClass:[NSNull class]])
+            if (![[responseDic valueForKey:@"leaveTime"] isEqualToString:@""])
             {
                 NSString *leaveSignTime = [[responseDic valueForKey:@"leaveTime"] substringFromIndex:11];
                 [Globals setLeaveSignTime:leaveSignTime];

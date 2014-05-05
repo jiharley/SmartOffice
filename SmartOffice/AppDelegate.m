@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import <AdSupport/AdSupport.h>
+#import <AudioToolbox/AudioToolbox.h>
+
 @implementation AppDelegate
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
@@ -44,8 +46,9 @@
         for (id key in userInfo) {
             NSLog(@"key: %@, value: %@", key, [userInfo objectForKey:key]);
         }
+        UITabBarController *tabController =(UITabBarController*) self.window.rootViewController;
+        tabController.selectedIndex = 0;
         application.applicationIconBadgeNumber = 0;
-//        [self addNotiFromRemoteNotification:userInfo updateUI:NO];
     }
     return YES;
 }
@@ -63,7 +66,7 @@
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
 //    NSLog(@"成功注册！ %@",deviceToken);
-    NSString *oldToken = [[NSUserDefaults standardUserDefaults] stringForKey:kDeviceToken];
+    NSString *oldToken = [Globals deviceToken];
     NSString *newToken = [deviceToken description];
     newToken = [newToken stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     newToken = [newToken stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -72,7 +75,8 @@
     if (![newToken isEqualToString:oldToken]) {
         if (nil != [[NSUserDefaults standardUserDefaults] valueForKey:kUserId])
         {
-            ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:ServerUrl]];
+            NSString *urlString = [NSString stringWithFormat:@"%@/index.php?r=site/clientUpdate",ServerUrl ];
+            ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
             [request setPostValue:[Globals userId] forKey:@"userId"];
             [request setPostValue:newToken forKey:@"token"];
             [request setDelegate:self];
@@ -89,9 +93,28 @@
 //点击某条远程通知时调用的委托 如果界面处于打开状态或者在后台运行,那么此委托会直接响应
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
-    for (id key in userInfo) {
+    
+    for (id key in userInfo)
+    {
         NSLog(@"key: %@, value: %@", key, [userInfo objectForKey:key]);
     }
+    if (application.applicationState == UIApplicationStateActive)
+    {
+        //震动及声音
+//        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+        AudioServicesPlaySystemSound(1007);
+        UITabBarController *tabController =(UITabBarController*) self.window.rootViewController;
+        if (0 != tabController.selectedIndex) {
+            [[[[tabController tabBar] items] objectAtIndex:0] setBadgeValue:@"new"];
+        }
+    }
+    else
+    {
+        UITabBarController *tabController =(UITabBarController*) self.window.rootViewController;
+        tabController.selectedIndex = 0;
+    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"newMessage" object:nil userInfo:userInfo];
+
     application.applicationIconBadgeNumber = 0;
 //    [self addNotiFromRemoteNotification:userInfo updateUI:YES];
 }
@@ -99,6 +122,7 @@
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    isActive = NO;
     NSLog(@"resignActive");
 }
 
@@ -106,6 +130,7 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    isActive = NO;
     NSLog(@"enterBackground");
 }
 
@@ -118,12 +143,15 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    isActive = YES;
+    application.applicationIconBadgeNumber = 0;
     NSLog(@"becomeActive");
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     NSLog(@"terminate");
+    isActive = NO;
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
 }

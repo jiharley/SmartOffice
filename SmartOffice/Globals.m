@@ -48,14 +48,18 @@
 {
     NSString *infoPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *fileName = [infoPath stringByAppendingPathComponent:@"userInfo.plist"];
-    return [NSDictionary dictionaryWithContentsOfFile:fileName];
+    NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:fileName];
+    return dic;
 }
 
 +(void) setUserInfo:(NSDictionary *)userInfo
 {
+//    NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *infoPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *fileName = [infoPath stringByAppendingPathComponent:@"userInfo.plist"];
-    [userInfo writeToFile:fileName atomically:YES];
+//    [fileManager createFileAtPath:fileName contents:nil attributes:nil];
+    BOOL didWriteSuccess = [userInfo writeToFile:fileName atomically:NO];
+    NSLog(@"%d",didWriteSuccess);
 }
 
 //deviceToken getter and setter

@@ -1,20 +1,22 @@
 //
-//  PersonalInfoTableViewController.m
+//  ContractTableViewController.m
 //  SmartOffice
 //
-//  Created by Peng Ji on 14-4-8.
+//  Created by Peng Ji on 14-4-28.
 //  Copyright (c) 2014年 WMLab. All rights reserved.
 //
 
-#import "PersonalInfoTableViewController.h"
+#import "ContractTableViewController.h"
+#import "ASIFormDataRequest.h"
+#import "ContractProgressViewController.h"
 
-#define kTitle @"title"
-#define kContent @"content"
-@interface PersonalInfoTableViewController ()
-@property (nonatomic, strong) NSArray *infoArr;
+@interface ContractTableViewController ()<ASIHTTPRequestDelegate>
+@property (nonatomic, strong) NSArray *contracProgressArr;
+@property (nonatomic, strong) NSArray *contractArr;
+
 @end
 
-@implementation PersonalInfoTableViewController
+@implementation ContractTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -28,25 +30,27 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSDictionary *infoDic = [Globals userInfo];
-    NSLog(@"%@", [infoDic valueForKey:kUsername]);
-    NSMutableDictionary *item1 = [@{kTitle : @"用户名", kContent : [infoDic valueForKey:kUsername]} mutableCopy];
-    NSMutableDictionary *item2 = [@{kTitle : @"姓名", kContent : [infoDic valueForKey:@"realName"]} mutableCopy];
-    NSString *gender = [[infoDic valueForKey:@"gender"] intValue] == 0?@"女":@"男";
-    NSMutableDictionary *item3 = [@{kTitle : @"性别", kContent : gender} mutableCopy];
-    NSMutableDictionary *item4 = [@{kTitle : @"部门", kContent : [infoDic valueForKey:@"department"]} mutableCopy];
-    NSMutableDictionary *item5 = [@{kTitle : @"职位", kContent : [infoDic valueForKey:@"position"]} mutableCopy];
-    NSMutableDictionary *item6 = [@{kTitle : @"邮箱", kContent : [infoDic valueForKey:@"email"]} mutableCopy];
-    NSMutableDictionary *item7 = [@{kTitle : @"手机号", kContent : [infoDic valueForKey:@"phoneNumber"]} mutableCopy];
-    
-    self.infoArr = @[item1, item2, item3, item4, item5, item6, item7];
+    [self requestData];
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void) requestData
 {
-    
+    NSString *urlString = [NSString stringWithFormat:@"%@/index.php?r=contract/clientIndex",ServerUrl];
+    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
+    [request setPostValue:[Globals userId] forKey:@"userId"];
+    request.delegate = self;
+    [request startAsynchronous];
 }
 
+#pragma mark ASIHTTPDelegate 
+- (void) requestFinished:(ASIHTTPRequest *)request
+{
+    NSLog(@"%@", request.responseString);
+    NSDictionary *responseDic = [NSJSONSerialization JSONObjectWithData:request.responseData options:kNilOptions error:nil];
+    self.contracProgressArr = [responseDic valueForKey:@"progress"];
+    self.contractArr = [responseDic valueForKey:@"contract"];
+    [self.tableView reloadData];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -64,23 +68,23 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.infoArr count];
+    return [self.contractArr count];
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"InfoCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    NSDictionary *dic = [self.infoArr objectAtIndex:[indexPath row]];
-    cell.textLabel.text = [dic objectForKey:kTitle];
-    cell.detailTextLabel.text = [dic objectForKey:kContent];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"contractCell" forIndexPath:indexPath];
+    
+    // Configure the cell...
+    NSDictionary *dic = [self.contractArr objectAtIndex:[indexPath row]];
+    cell.textLabel.text = [dic objectForKey:@"name"];
     return cell;
 }
 
-#pragma mark - Table view delegate
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+#pragma tableview delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self performSegueWithIdentifier:@"contractProgress" sender:self];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 /*
@@ -121,15 +125,15 @@
 }
 */
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    NSIndexPath *selIndexPath = [self.tableView indexPathForSelectedRow];
+    ContractProgressViewController *contractProgressVC = (ContractProgressViewController *)[segue destinationViewController];
+    contractProgressVC.contractDic = [self.contractArr objectAtIndex:[selIndexPath row]];
+    contractProgressVC.contractProgressArr = self.contracProgressArr;
 }
-*/
 
 @end

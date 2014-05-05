@@ -7,6 +7,9 @@
 //
 
 #import "MoreViewController.h"
+#import "PersonalInfoTableViewController.h"
+#import "ContractTableViewController.h"
+#import "ReimTableViewController.h"
 
 @interface MoreViewController ()
 
@@ -117,6 +120,22 @@
             [self performSegueWithIdentifier:@"personalInfo" sender:self];
             break;
         }
+        case 1:
+        {
+            switch ([indexPath row]) {
+                case 0:
+                    break;
+                case 1:
+                    [self performSegueWithIdentifier:@"reimbursement" sender:self];
+                    break;
+                case 2:
+                    [self performSegueWithIdentifier:@"contract" sender:self];
+                    break;
+                default:
+                    break;
+            }
+            break;
+        }
         case 3:
         {
             //trigger logout
@@ -129,24 +148,10 @@
             [Globals setLeaveSignTime:nil];
             [Globals setSignDate:nil];
             //删除coredata存储的数据
-            NSManagedObjectContext *context = [self managedObjectContext];
-            NSEntityDescription *entity = [NSEntityDescription entityForName:kAbsenceApplyEntityName inManagedObjectContext:context];
-            NSFetchRequest *request = [[NSFetchRequest alloc] init];
-            [request setIncludesPropertyValues:NO];
-            [request setEntity:entity];
-            NSError *error = nil;
-            NSArray *datas = [context executeFetchRequest:request error:&error];
-            if (!error && datas && [datas count])
-            {
-                for (NSManagedObject *obj in datas)
-                {
-                    [context deleteObject:obj];
-                }
-                if (![context save:&error])
-                {  
-                    NSLog(@"error:%@",error);  
-                }  
-            }
+            [self deleteAllObjects:kAbsenceApplyEntityName];
+            [self deleteAllObjects:kAnnouncementEntityName];
+            [self deleteAllObjects:kInformEntityName];
+            
             [self.tabBarController performSegueWithIdentifier:@"login" sender:self];
             break;
         }
@@ -155,6 +160,43 @@
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
+- (void) deleteAllObjects: (NSString *) entityDescription  {
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:entityDescription inManagedObjectContext:managedObjectContext];
+    [fetchRequest setIncludesPropertyValues:NO];
+    [fetchRequest setEntity:entity];
+    
+    NSError *error;
+    NSArray *items = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    
+    for (NSManagedObject *managedObject in items) {
+    	[managedObjectContext deleteObject:managedObject];
+    	NSLog(@"%@ object deleted",entityDescription);
+    }
+    if (![managedObjectContext save:&error]) {
+    	NSLog(@"Error deleting %@ - error:%@",entityDescription,error);
+    }
+    
+}
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"personalInfo"]) {
+        PersonalInfoTableViewController *personalInfoTableViewController = (PersonalInfoTableViewController *)[segue destinationViewController];
+        personalInfoTableViewController.hidesBottomBarWhenPushed = YES;
+    }
+    if ([segue.identifier isEqualToString:@"reimbursement"]) {
+        ReimTableViewController *reimVC = (ReimTableViewController *) [segue destinationViewController];
+        reimVC.hidesBottomBarWhenPushed = YES;
+    }
+    if ([segue.identifier isEqualToString:@"contract"]) {
+        ContractTableViewController *contractVC = (ContractTableViewController *)[segue destinationViewController];
+        contractVC.hidesBottomBarWhenPushed = YES;
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

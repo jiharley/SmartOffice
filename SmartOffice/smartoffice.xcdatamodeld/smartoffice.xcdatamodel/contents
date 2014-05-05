@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C1021" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="AbsenceApply" representedClassName="AbsenceApply" syncable="YES">
-        <attribute name="applyId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="applyId" optional="YES" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
         <attribute name="checked" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="endDate" optional="YES" attributeType="Date" syncable="YES"/>
@@ -12,7 +12,28 @@
         <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="userId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
     </entity>
+    <entity name="Announcement" representedClassName="Announcement" syncable="YES">
+        <attribute name="announceId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="announcerName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="checked" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="insertMoment" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="validDate" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
+    <entity name="Inform" representedClassName="Inform" syncable="YES">
+        <attribute name="announcerName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="checked" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="informId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="insertMoment" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="isImportant" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="validDate" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="AbsenceApply" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="AbsenceApply" positionX="0" positionY="0" width="128" height="195"/>
+        <element name="Announcement" positionX="0" positionY="72" width="128" height="148"/>
+        <element name="Inform" positionX="0" positionY="90" width="128" height="163"/>
     </elements>
 </model>

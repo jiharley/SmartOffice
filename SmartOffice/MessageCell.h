@@ -14,4 +14,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLable;
 @property (weak, nonatomic) IBOutlet UILabel *dateLable;
 @property (weak, nonatomic) IBOutlet UILabel *contentLable;
+@property (weak, nonatomic) IBOutlet UIImageView *starImage;
 @end
