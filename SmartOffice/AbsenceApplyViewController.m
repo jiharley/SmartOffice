@@ -93,7 +93,7 @@ static NSString *kCheckWholeDayCellID = @"checkWholeDayCell";
     
     datePickCell = nil;
     detailReasonCell = nil;
-    [[NSUserDefaults standardUserDefaults] setValue:nil forKey:kDetailReason];
+    [[NSUserDefaults standardUserDefaults] setValue:@"" forKey:kDetailReason];
 //    self.detailReasonString = @"";
     isCheckWholeDay = YES;
     
@@ -123,13 +123,22 @@ static NSString *kCheckWholeDayCellID = @"checkWholeDayCell";
         startDate = [[startDate substringToIndex:10] stringByAppendingString:@" 08:00:00"];
         endDate = [[endDate substringToIndex:10] stringByAppendingString:@" 18:00:00"];
     }
+    //检查日期合法性
     NSTimeInterval timeInterval = [[dateFormatter dateFromString:endDate] timeIntervalSinceDate:[dateFormatter dateFromString:startDate]];
     if (timeInterval <= 0) {
         UIAlertView *av = [[UIAlertView alloc] initWithTitle:nil message:@"开始日期必须早于结束日期" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
-        av.tag = 0;
         [av show];
         return;
     }
+    //检查是否填写理由
+    NSString *reasonStr = [[NSUserDefaults standardUserDefaults] valueForKey:kDetailReason];
+    if(reasonStr.length == 0)
+    {
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:nil message:@"请填写详情" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+        [av show];
+        return;
+    }
+    
     NSString *urlString = [NSString stringWithFormat:@"%@/index.php?r=absenseApply/clientCreate",ServerUrl];
     ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
     [request setPostValue:[Globals userId] forKey:@"userId"];

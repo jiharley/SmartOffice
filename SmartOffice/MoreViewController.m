@@ -10,8 +10,9 @@
 #import "PersonalInfoTableViewController.h"
 #import "ContractTableViewController.h"
 #import "ReimTableViewController.h"
+#import "MeetingRoomTableViewController.h"
 
-@interface MoreViewController ()
+@interface MoreViewController ()<UIAlertViewDelegate>
 
 @end
 
@@ -46,7 +47,7 @@
 #pragma tableview datasource
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 4;
+    return 3;
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -59,9 +60,6 @@
             return 3;
             break;
         case 2:
-            return 1;
-            break;
-        case 3:
             return 1;
             break;
         default:
@@ -98,10 +96,8 @@
             }
             break;
         case 2:
-            cell.textLabel.text = @"设置";
-            break;
-        case 3:
             cell.accessoryType = UITableViewCellAccessoryNone;
+            cell.backgroundColor = [UIColor redColor];
             cell.textLabel.text = @"退出登录";
             cell.textLabel.textAlignment = NSTextAlignmentCenter;
         default:
@@ -124,6 +120,7 @@
         {
             switch ([indexPath row]) {
                 case 0:
+                    [self performSegueWithIdentifier:@"reserveRoom" sender:self];
                     break;
                 case 1:
                     [self performSegueWithIdentifier:@"reimbursement" sender:self];
@@ -136,8 +133,23 @@
             }
             break;
         }
-        case 3:
+        case 2:
         {
+            UIAlertView *av = [[UIAlertView alloc] initWithTitle:nil message:@"确定退出？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"退出", nil];
+            av.tag = 0;
+            [av show];
+            break;
+        }
+        default:
+            break;
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == 0) {
+        if (buttonIndex == 1) {
             //trigger logout
             [Globals setUsername:nil];
             [Globals setUserId:nil];
@@ -153,12 +165,8 @@
             [self deleteAllObjects:kInformEntityName];
             
             [self.tabBarController performSegueWithIdentifier:@"login" sender:self];
-            break;
         }
-        default:
-            break;
     }
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void) deleteAllObjects: (NSString *) entityDescription  {
@@ -194,6 +202,10 @@
     if ([segue.identifier isEqualToString:@"contract"]) {
         ContractTableViewController *contractVC = (ContractTableViewController *)[segue destinationViewController];
         contractVC.hidesBottomBarWhenPushed = YES;
+    }
+    if ([segue.identifier isEqualToString:@"reserveRoom"]) {
+        MeetingRoomTableViewController *meetingRoomVC = (MeetingRoomTableViewController *)[segue destinationViewController];
+        meetingRoomVC.hidesBottomBarWhenPushed = YES;
     }
 }
 

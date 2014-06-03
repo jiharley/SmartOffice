@@ -81,7 +81,7 @@ static NSString *kMessageTitleCell = @"messageTitleCell";
     MessageTitleCell *titleCell = nil;
     switch ([indexPath section]) {
         case 0:
-        {
+        {//title cell
             titleCell = (MessageTitleCell *)[tableView dequeueReusableCellWithIdentifier:kMessageTitleCell];
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
             [dateFormatter setDateFormat:@"yyyy-MM-dd"];
@@ -106,7 +106,7 @@ static NSString *kMessageTitleCell = @"messageTitleCell";
             break;
         }
         case 1:
-        {
+        {//message content cell
             contentCell = (VaribleTextCell *)[tableView dequeueReusableCellWithIdentifier:kMessageContentCell];
             CGSize size;
             CGFloat vPadding = contentCell.contentTextView.frame.origin.y;

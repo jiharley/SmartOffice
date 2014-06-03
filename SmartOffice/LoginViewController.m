@@ -86,7 +86,8 @@
         {
             case 4:
             {
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"检测您可能更换过手机或者清除过数据，是否向管理员发送通知？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"发送", nil];
+                NSString *message = [NSString stringWithFormat:@"检测您可能更换过手机或者清除过数据,联系管理员将手机ID更改为 %@",[Globals phoneId]];
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:message delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
                 alertView.tag = 0;
                 [alertView show];
                 break;
@@ -150,6 +151,7 @@
         [request setPostValue:pw forKey:@"password"];
         [request setPostValue:[Globals phoneId] forKey:@"phoneId"];
         [request setPostValue:appDelegate.deviceTokenStr forKey:@"deviceToken"];
+        [request setPostValue:@"iOS" forKey:@"phoneType"];
         request.delegate = self;
         [request startAsynchronous];
     }

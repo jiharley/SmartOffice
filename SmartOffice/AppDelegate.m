@@ -65,7 +65,7 @@
 //远程通知注册成功委托
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
-//    NSLog(@"成功注册！ %@",deviceToken);
+    NSLog(@"成功注册！ %@",deviceToken);
     NSString *oldToken = [Globals deviceToken];
     NSString *newToken = [deviceToken description];
     newToken = [newToken stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];

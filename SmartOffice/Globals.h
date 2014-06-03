@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#define ServerUrl @"http://192.168.1.115/so"
-//#define ServerUrl @"http://wm.tongji.edu.cn/so"
+//#define ServerUrl @"http://192.168.1.115/so"
+#define ServerUrl @"http://wm.tongji.edu.cn/so"
 
 #define kDeviceToken @"deviceToken"
 #define kUsername @"userName"

@@ -144,7 +144,7 @@ static NSString *kDetailCell = @"detailReasonCell";
                 [self.tableView reloadData];
             }
         }
-        if ([[resultDic valueForKey:@"resultCode"] intValue] == 3)
+        else if ([[resultDic valueForKey:@"resultCode"] intValue] == 3)
         {
             self.absenceApply.status = [NSNumber numberWithInt:3];
             NSManagedObjectContext *context = [self managedObjectContext];
@@ -221,6 +221,18 @@ static NSString *kDetailCell = @"detailReasonCell";
         case 2:
         {
             return 3;
+            break;
+        }
+        case 3:
+        {
+            if ([[[Globals userInfo] objectForKey:@"position"] isEqualToString:@"boss"]) {
+                return 3;
+            }
+            else
+            {
+                return 2;
+            }
+            break;
         }
         default:
             return 2;
@@ -306,7 +318,7 @@ static NSString *kDetailCell = @"detailReasonCell";
         }
         case 2:
         {
-            if ([self.absenceApply.status intValue] == 0) {
+            if ([self.absenceApply.status intValue] == 0 || [self.absenceApply.status intValue] == 3) {
                 actionCell = [tableView dequeueReusableCellWithIdentifier:@"actionCell"];
                 return actionCell;
             }

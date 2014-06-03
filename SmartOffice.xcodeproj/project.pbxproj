@@ -14,6 +14,8 @@
 		381099EC18DADBBE00F01728 /* SvUDIDTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 381099EA18DADBBE00F01728 /* SvUDIDTools.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		381099EE18DAE35D00F01728 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 381099ED18DAE35D00F01728 /* Security.framework */; };
 		381ED4E718C6C74D0048AC13 /* SignProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 381ED4E618C6C74D0048AC13 /* SignProgressView.m */; };
+		38269E2019357CCA00C6AFC2 /* loginbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 38269E1F19357CCA00C6AFC2 /* loginbg.png */; };
+		38269E2219357D3E00C6AFC2 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 38269E2119357D3E00C6AFC2 /* logo.png */; };
 		38317D2018F3FB2500358C28 /* PersonalInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38317D1F18F3FB2500358C28 /* PersonalInfoTableViewController.m */; };
 		38351ADE18ED49D400AA17F6 /* SmartOffice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 38351ADC18ED49D400AA17F6 /* SmartOffice.xcdatamodeld */; };
 		38351AEA18EFF5BF00AA17F6 /* ToDoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38351AE918EFF5BF00AA17F6 /* ToDoCell.m */; };
@@ -62,6 +64,12 @@
 		388E83FA18C4B5D40047CF86 /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 388E83F918C4B5D40047CF86 /* PullRefreshTableViewController.m */; };
 		388E83FC18C4B8650047CF86 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 388E83FB18C4B8650047CF86 /* arrow.png */; };
 		388E83FE18C573B30047CF86 /* sign.png in Resources */ = {isa = PBXBuildFile; fileRef = 388E83FD18C573B30047CF86 /* sign.png */; };
+		389C44F6191C7FF8007738C6 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 389C44F4191C7FF8007738C6 /* delete.png */; };
+		389C44F7191C7FF8007738C6 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 389C44F5191C7FF8007738C6 /* check.png */; };
+		389C44FA191C8141007738C6 /* MeetingRoomTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 389C44F9191C8141007738C6 /* MeetingRoomTableViewController.m */; };
+		389C44FD191C8E41007738C6 /* RoomReservationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 389C44FC191C8E41007738C6 /* RoomReservationCell.m */; };
+		389C44FF191C975C007738C6 /* conference.png in Resources */ = {isa = PBXBuildFile; fileRef = 389C44FE191C975C007738C6 /* conference.png */; };
+		389C4501191C98A0007738C6 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 389C4500191C98A0007738C6 /* clock.png */; };
 		38ADAC2218BF170300FD98A7 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38ADAC2118BF170300FD98A7 /* MoreViewController.m */; };
 		38BDAF5E18F54A160064B16D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38BDAF5D18F54A160064B16D /* AudioToolbox.framework */; };
 		38BDAF6118F58A320064B16D /* AbsenceApply.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BDAF6018F58A320064B16D /* AbsenceApply.m */; };
@@ -77,6 +85,13 @@
 		38E0444F190E218A0064A96F /* ReimTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E0444E190E218A0064A96F /* ReimTableViewController.m */; };
 		38E04452190E234B0064A96F /* ReimProgressTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E04451190E234B0064A96F /* ReimProgressTableViewController.m */; };
 		38E044581915D1CA0064A96F /* WaitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E044571915D1CA0064A96F /* WaitView.m */; };
+		38E044681919B75E0064A96F /* ing.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E044611919B75E0064A96F /* ing.png */; };
+		38E044691919B75E0064A96F /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E044621919B75E0064A96F /* left.png */; };
+		38E0446A1919B75E0064A96F /* leftClick.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E044631919B75E0064A96F /* leftClick.png */; };
+		38E0446B1919B75E0064A96F /* signCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E044641919B75E0064A96F /* signCircle.png */; };
+		38E0446C1919B75E0064A96F /* signCircleClick.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E044651919B75E0064A96F /* signCircleClick.png */; };
+		38E0446D1919B75E0064A96F /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E044661919B75E0064A96F /* right.png */; };
+		38E0446E1919B75E0064A96F /* rightClick.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E044671919B75E0064A96F /* rightClick.png */; };
 		38F7667418CEFFDA00228F1C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F7667318CEFFDA00228F1C /* CoreData.framework */; };
 		38F7667618CEFFEE00228F1C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F7667518CEFFEE00228F1C /* libz.dylib */; };
 		38F7667818CEFFF900228F1C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F7667718CEFFF900228F1C /* MobileCoreServices.framework */; };
@@ -107,6 +122,8 @@
 		381099ED18DAE35D00F01728 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		381ED4E518C6C74D0048AC13 /* SignProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignProgressView.h; sourceTree = "<group>"; };
 		381ED4E618C6C74D0048AC13 /* SignProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignProgressView.m; sourceTree = "<group>"; };
+		38269E1F19357CCA00C6AFC2 /* loginbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginbg.png; sourceTree = "<group>"; };
+		38269E2119357D3E00C6AFC2 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		38317D1E18F3FB2500358C28 /* PersonalInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalInfoTableViewController.h; sourceTree = "<group>"; };
 		38317D1F18F3FB2500358C28 /* PersonalInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalInfoTableViewController.m; sourceTree = "<group>"; };
 		38351ADD18ED49D400AA17F6 /* smartoffice.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = smartoffice.xcdatamodel; sourceTree = "<group>"; };
@@ -182,6 +199,14 @@
 		388E83F918C4B5D40047CF86 /* PullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullRefreshTableViewController.m; sourceTree = "<group>"; };
 		388E83FB18C4B8650047CF86 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		388E83FD18C573B30047CF86 /* sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sign.png; sourceTree = "<group>"; };
+		389C44F4191C7FF8007738C6 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
+		389C44F5191C7FF8007738C6 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
+		389C44F8191C8141007738C6 /* MeetingRoomTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetingRoomTableViewController.h; sourceTree = "<group>"; };
+		389C44F9191C8141007738C6 /* MeetingRoomTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeetingRoomTableViewController.m; sourceTree = "<group>"; };
+		389C44FB191C8E41007738C6 /* RoomReservationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomReservationCell.h; sourceTree = "<group>"; };
+		389C44FC191C8E41007738C6 /* RoomReservationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomReservationCell.m; sourceTree = "<group>"; };
+		389C44FE191C975C007738C6 /* conference.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = conference.png; sourceTree = "<group>"; };
+		389C4500191C98A0007738C6 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
 		38ADAC2018BF170300FD98A7 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
 		38ADAC2118BF170300FD98A7 /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
 		38BDAF5D18F54A160064B16D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -209,6 +234,13 @@
 		38E04451190E234B0064A96F /* ReimProgressTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReimProgressTableViewController.m; sourceTree = "<group>"; };
 		38E044561915D1CA0064A96F /* WaitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaitView.h; sourceTree = "<group>"; };
 		38E044571915D1CA0064A96F /* WaitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaitView.m; sourceTree = "<group>"; };
+		38E044611919B75E0064A96F /* ing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ing.png; sourceTree = "<group>"; };
+		38E044621919B75E0064A96F /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left.png; sourceTree = "<group>"; };
+		38E044631919B75E0064A96F /* leftClick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftClick.png; sourceTree = "<group>"; };
+		38E044641919B75E0064A96F /* signCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signCircle.png; sourceTree = "<group>"; };
+		38E044651919B75E0064A96F /* signCircleClick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signCircleClick.png; sourceTree = "<group>"; };
+		38E044661919B75E0064A96F /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right.png; sourceTree = "<group>"; };
+		38E044671919B75E0064A96F /* rightClick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightClick.png; sourceTree = "<group>"; };
 		38F7667318CEFFDA00228F1C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		38F7667518CEFFEE00228F1C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		38F7667718CEFFF900228F1C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -275,9 +307,9 @@
 		38351AE318ED6CF400AA17F6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				38E04455190E24260064A96F /* MoreTab */,
-				38E04454190E24150064A96F /* AttendanceTab */,
 				38E04453190E23FF0064A96F /* MessageTab */,
+				38E04454190E24150064A96F /* AttendanceTab */,
+				38E04455190E24260064A96F /* MoreTab */,
 				381099E018DA868A00F01728 /* LoginViewController.h */,
 				381099E118DA868A00F01728 /* LoginViewController.m */,
 			);
@@ -315,6 +347,8 @@
 				38CE91F318FF83A40049DB82 /* VaribleTextCell.m */,
 				386D107318FF9D33006A44BB /* MessageTitleCell.h */,
 				386D107418FF9D33006A44BB /* MessageTitleCell.m */,
+				389C44FB191C8E41007738C6 /* RoomReservationCell.h */,
+				389C44FC191C8E41007738C6 /* RoomReservationCell.m */,
 			);
 			name = "TableView Cells";
 			sourceTree = "<group>";
@@ -336,6 +370,19 @@
 		38351AE718ED6DD300AA17F6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				38269E2119357D3E00C6AFC2 /* logo.png */,
+				38269E1F19357CCA00C6AFC2 /* loginbg.png */,
+				389C4500191C98A0007738C6 /* clock.png */,
+				389C44FE191C975C007738C6 /* conference.png */,
+				389C44F4191C7FF8007738C6 /* delete.png */,
+				389C44F5191C7FF8007738C6 /* check.png */,
+				38E044611919B75E0064A96F /* ing.png */,
+				38E044621919B75E0064A96F /* left.png */,
+				38E044631919B75E0064A96F /* leftClick.png */,
+				38E044641919B75E0064A96F /* signCircle.png */,
+				38E044651919B75E0064A96F /* signCircleClick.png */,
+				38E044661919B75E0064A96F /* right.png */,
+				38E044671919B75E0064A96F /* rightClick.png */,
 				38E0444119089F220064A96F /* star.png */,
 				388E83FD18C573B30047CF86 /* sign.png */,
 				388E83FB18C4B8650047CF86 /* arrow.png */,
@@ -508,6 +555,8 @@
 				38E0444E190E218A0064A96F /* ReimTableViewController.m */,
 				38E04450190E234B0064A96F /* ReimProgressTableViewController.h */,
 				38E04451190E234B0064A96F /* ReimProgressTableViewController.m */,
+				389C44F8191C8141007738C6 /* MeetingRoomTableViewController.h */,
+				389C44F9191C8141007738C6 /* MeetingRoomTableViewController.m */,
 			);
 			name = MoreTab;
 			sourceTree = "<group>";
@@ -591,22 +640,35 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38E0446B1919B75E0064A96F /* signCircle.png in Resources */,
 				388E83EA18C469960047CF86 /* announcement.png in Resources */,
 				388E83E618C4664A0047CF86 /* notification.png in Resources */,
+				389C44F6191C7FF8007738C6 /* delete.png in Resources */,
 				381099E918DAD8AB00F01728 /* KeychainAccessGroups.plist in Resources */,
+				38E0446D1919B75E0064A96F /* right.png in Resources */,
 				386EEB5018BDD9D100500855 /* Images.xcassets in Resources */,
 				388E83D918C43DA20047CF86 /* MessageCell.xib in Resources */,
 				388E83EE18C46B080047CF86 /* more@2x.png in Resources */,
+				389C44F7191C7FF8007738C6 /* check.png in Resources */,
 				388E83F018C46B080047CF86 /* attendance@2x.png in Resources */,
+				38E0446C1919B75E0064A96F /* signCircleClick.png in Resources */,
+				389C4501191C98A0007738C6 /* clock.png in Resources */,
+				389C44FF191C975C007738C6 /* conference.png in Resources */,
 				386EEB3F18BDD9D100500855 /* InfoPlist.strings in Resources */,
 				388E83FC18C4B8650047CF86 /* arrow.png in Resources */,
 				38E0444219089F220064A96F /* star.png in Resources */,
 				385BD71E18C71FEB00F6A3BB /* bluecircle.png in Resources */,
 				388E83E418C460F30047CF86 /* todo.png in Resources */,
+				38269E2019357CCA00C6AFC2 /* loginbg.png in Resources */,
+				38E044681919B75E0064A96F /* ing.png in Resources */,
 				388E83E818C466740047CF86 /* announcement1.png in Resources */,
+				38E0446A1919B75E0064A96F /* leftClick.png in Resources */,
+				38E0446E1919B75E0064A96F /* rightClick.png in Resources */,
 				388E83FE18C573B30047CF86 /* sign.png in Resources */,
 				388E83EF18C46B080047CF86 /* message@2x.png in Resources */,
+				38269E2219357D3E00C6AFC2 /* logo.png in Resources */,
 				385BD71C18C7150900F6A3BB /* graycircle.png in Resources */,
+				38E044691919B75E0064A96F /* left.png in Resources */,
 				386EEB4818BDD9D100500855 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -631,6 +693,7 @@
 				38E0444C190DEF440064A96F /* ContractProgressViewController.m in Sources */,
 				381099EC18DADBBE00F01728 /* SvUDIDTools.m in Sources */,
 				380860FE1904AAD400ACB94D /* Announcement.m in Sources */,
+				389C44FD191C8E41007738C6 /* RoomReservationCell.m in Sources */,
 				385BD72C18C75AA500F6A3BB /* TextViewCell.m in Sources */,
 				388E83FA18C4B5D40047CF86 /* PullRefreshTableViewController.m in Sources */,
 				3878CF4118CED66F00D3A671 /* ASIDataCompressor.m in Sources */,
@@ -642,6 +705,7 @@
 				38317D2018F3FB2500358C28 /* PersonalInfoTableViewController.m in Sources */,
 				3878CF4318CED66F00D3A671 /* ASIDownloadCache.m in Sources */,
 				3878CF4618CED66F00D3A671 /* ASIInputStream.m in Sources */,
+				389C44FA191C8141007738C6 /* MeetingRoomTableViewController.m in Sources */,
 				38351ADE18ED49D400AA17F6 /* SmartOffice.xcdatamodeld in Sources */,
 				381099E518DA88EC00F01728 /* Globals.m in Sources */,
 				386EEB4B18BDD9D100500855 /* MessageViewController.m in Sources */,

@@ -20,7 +20,7 @@ static int count = 0;
 static BOOL isLocated = NO;
 static BOOL isSignUploaded = NO;
 static NSString *kApplyCell = @"applyCell";
-NSString *noSignTime = @"--:--:--";
+static NSString *noSignTime = @"--:--:--";
 @interface AttendanceViewController ()<UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate, ASIHTTPRequestDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *applyTableView;
 @property (weak, nonatomic) IBOutlet SignProgressView *signProgressView;
@@ -36,6 +36,9 @@ NSString *noSignTime = @"--:--:--";
 
 - (IBAction)beginSign:(id)sender;
 
+- (IBAction)applyAction:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *vacationApplyBtn;
+@property (weak, nonatomic) IBOutlet UIButton *businessApplyBtn;
 @end
 
 @implementation AttendanceViewController
@@ -43,6 +46,8 @@ NSString *noSignTime = @"--:--:--";
 - (void)viewWillAppear:(BOOL)animated
 {
     [self refreshView];
+//    self.locationManager.delegate = self;
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView) name:UIApplicationWillEnterForegroundNotification object:nil];
 }
 
@@ -102,9 +107,10 @@ NSString *noSignTime = @"--:--:--";
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self initRegion];
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
-    self.dateFormatter = [[NSDateFormatter alloc] init];
+//    _locationManager = [[CLLocationManager alloc] init];
+//    self.locationManager.delegate = self;
+    _dateFormatter = [[NSDateFormatter alloc] init];
+    self.view.backgroundColor = [UIColor colorWithRed:240.0 green:256.0 blue:260.0 alpha:1.0];
 }
 //计算时间差，时间的格式为"HH:mm:ss"
 - (NSTimeInterval) calTimeIntervalFromTime:(NSString *)fromTime toTime:(NSString *)toTime
@@ -120,10 +126,24 @@ NSString *noSignTime = @"--:--:--";
 }
 
 - (IBAction)beginSign:(id)sender {
+    [self initRegion];
+//    if(self.locationManager == nil)
+//    {
+//        _locationManager = [[CLLocationManager alloc] init];
+////        self.locationManager.delegate = self;
+//    }
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    
     self.signBtn.enabled = NO;
     [self showStatusMsg:@"正在定位..."];
     [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
     [self startTimerWithInterval:LocatingTimerInterval];
+}
+
+- (IBAction)applyAction:(id)sender {
+    UIButton *buttonClicked = (UIButton *)sender;
+    [self performSegueWithIdentifier:@"applyAction" sender:buttonClicked];
 }
 
 -(void) startTimerWithInterval:(float)interval
@@ -147,6 +167,7 @@ NSString *noSignTime = @"--:--:--";
             [self stopTimer];
             [self resetParams];
             [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
+//            self.locationManager = nil;
         }
     }
     if (100 == count)
@@ -314,10 +335,9 @@ NSString *noSignTime = @"--:--:--";
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     AbsenceApplyViewController *destViewController = segue.destinationViewController;
-    NSIndexPath *selectedIndexPath = [self.applyTableView indexPathForSelectedRow];
-    
+    UIButton *btn = (UIButton *)sender;
     if ([destViewController respondsToSelector:@selector(setApplyType:)]) {
-        destViewController.applyType = [selectedIndexPath row] + 1;
+        destViewController.applyType = btn.tag;
     }
     destViewController.hidesBottomBarWhenPushed = YES;
 }
