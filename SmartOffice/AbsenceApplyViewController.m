@@ -8,6 +8,7 @@
 
 #import "AbsenceApplyViewController.h"
 #import "ASIFormDataRequest.h"
+#import "WaitView.h"
 
 #define kPickerAnimationDuration    0.40   // duration for the animation to slide the date picker into view
 #define kDatePickerTag              99     // view tag identifiying the date picker view
@@ -41,6 +42,8 @@ static NSString *kCheckWholeDayCellID = @"checkWholeDayCell";
 
 @property (strong, nonatomic) IBOutlet UIDatePicker *pickerView;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+
+@property (nonatomic, strong) WaitView *waitView;
 
 - (IBAction)dateAction:(id)sender;
 - (IBAction)doneAction:(id)sender;
@@ -147,11 +150,19 @@ static NSString *kCheckWholeDayCellID = @"checkWholeDayCell";
     [request setPostValue:[[NSUserDefaults standardUserDefaults] valueForKey:kDetailReason] forKey:@"detail"];
     [request setPostValue:[NSString stringWithFormat:@"%d",self.applyType] forKey:@"type"];
     request.delegate = self;
-    [request startSynchronous];
+    [request startAsynchronous];
+    
+    CGRect rect = [UIScreen mainScreen].bounds;
+    _waitView = [[WaitView alloc] initWithFrame:rect];
+    [self.navigationController.view addSubview:_waitView];
+
 }
 
 - (void) requestFinished:(ASIHTTPRequest *)request
 {
+    [_waitView removeFromSuperview];
+    _waitView = nil;
+
     NSLog(@"%@", request.responseString);
     NSDictionary *responseDic = [NSJSONSerialization JSONObjectWithData:request.responseData options:kNilOptions error:nil];
     int resultCode = [[responseDic valueForKey:@"resultCode"] intValue];
@@ -171,6 +182,9 @@ static NSString *kCheckWholeDayCellID = @"checkWholeDayCell";
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
+    [_waitView removeFromSuperview];
+    _waitView = nil;
+
     UIAlertView *av = [[UIAlertView alloc] initWithTitle:nil message:@"网络错误" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
     av.tag = 0;
     [av show];

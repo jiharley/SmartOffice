@@ -259,7 +259,7 @@ static NSString *noSignTime = @"--:--:--";
         return;
     NSUUID *proximityUUID = [[NSUUID alloc] initWithUUIDString:@"d26d197e-4a1c-44ae-b504-dd7768870564"];
     //    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:proximityUUID identifier:@"TongjiIdentifier"];
-    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:proximityUUID major:1403 identifier:@"TongjiIdentifier"];
+    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:proximityUUID major:0001 identifier:@"TongjiIdentifier"];
 }
 
 #pragma mark - location delegate

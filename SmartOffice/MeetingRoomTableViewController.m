@@ -9,10 +9,13 @@
 #import "MeetingRoomTableViewController.h"
 #import "ASIFormDataRequest.h"
 #import "RoomReservationCell.h"
+#import "WaitView.h"
 
 static NSString *kRoomReservationCell = @"roomReservationCell";
 @interface MeetingRoomTableViewController () <ASIHTTPRequestDelegate>
 @property (nonatomic, strong) NSArray *reservationArr;
+@property (nonatomic, strong) WaitView *waitView;
+
 @end
 
 @implementation MeetingRoomTableViewController
@@ -39,14 +42,27 @@ static NSString *kRoomReservationCell = @"roomReservationCell";
     [request setPostValue:[Globals userId] forKey:@"userId"];
     request.delegate = self;
     [request startAsynchronous];
+    CGRect rect = [UIScreen mainScreen].bounds;
+    _waitView = [[WaitView alloc] initWithFrame:rect];
+    [self.navigationController.view addSubview:_waitView];
+
 }
 
 - (void) requestFinished:(ASIHTTPRequest *)request
 {
+    [_waitView removeFromSuperview];
+    _waitView = nil;
+
     NSLog(@"%@", request.responseString);
     NSArray *responseArr = [NSJSONSerialization JSONObjectWithData:request.responseData options:kNilOptions error:nil];
     self.reservationArr = [responseArr copy];
     [self.tableView reloadData];
+}
+
+- (void) requestFailed:(ASIHTTPRequest *)request
+{
+    [_waitView removeFromSuperview];
+    _waitView = nil;
 }
 
 - (void)didReceiveMemoryWarning

@@ -13,9 +13,12 @@
 #import "MessageDetailViewController.h"
 #import "ASIFormDataRequest.h"
 #import "ASINetworkQueue.h"
-#import "AbsenceApply.h"
-#import "Announcement.h"
-#import "Inform.h"
+//#import "AbsenceApply.h"
+//#import "Announcement.h"
+//#import "Inform.h"
+#import "AbsenceApply+Addition.h"
+#import "Inform+Addition.h"
+#import "Announcement+Addition.h"
 
 #define kAPTitle @"AbsenceApplyTitle"
 #define kAPDetail @"AbsenceApplyDetail"
@@ -144,24 +147,24 @@ static bool isRefreshing = NO;
     NSArray *responseArr = [NSJSONSerialization JSONObjectWithData:request.responseData options:kNilOptions error:nil];
     if (request.tag == 1) //处理待办事项的响应数据
     {
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"applyId==$Apply_Id"];
-        
+//        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"applyId==$Apply_Id"];
+        [AbsenceApply clearEntityDataInContext:_managedObjectContext];
         for(int i=0;i<[responseArr count];i++)
         {
-            NSDictionary *variables = @{@"Apply_Id": [NSNumber numberWithInteger:[responseArr[i][@"id"] integerValue]]};
-            NSPredicate *localPredicate = [predicate predicateWithSubstitutionVariables:variables];
-            NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-            NSEntityDescription *entity = [NSEntityDescription entityForName:kAbsenceApplyEntityName inManagedObjectContext:_managedObjectContext];
-            [fetchRequest setEntity:entity];
-            [fetchRequest setPredicate:localPredicate];
-            NSArray *resultsArr = [_managedObjectContext executeFetchRequest:fetchRequest error:nil];
-            if ([resultsArr count]) {
-                AbsenceApply *absenceApply = [resultsArr objectAtIndex:0];
-                absenceApply.status =[NSNumber numberWithInteger:[responseArr[i][@"status"] integerValue]];
-                absenceApply.feedback = (responseArr[i][@"feedback"] == (id)[NSNull null])?@"":(responseArr[i][@"feedback"]);
-            }
-            else
-            {
+//            NSDictionary *variables = @{@"Apply_Id": [NSNumber numberWithInteger:[responseArr[i][@"id"] integerValue]]};
+//            NSPredicate *localPredicate = [predicate predicateWithSubstitutionVariables:variables];
+//            NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+//            NSEntityDescription *entity = [NSEntityDescription entityForName:kAbsenceApplyEntityName inManagedObjectContext:_managedObjectContext];
+//            [fetchRequest setEntity:entity];
+//            [fetchRequest setPredicate:localPredicate];
+//            NSArray *resultsArr = [_managedObjectContext executeFetchRequest:fetchRequest error:nil];
+//            if ([resultsArr count]) {
+//                AbsenceApply *absenceApply = [resultsArr objectAtIndex:0];
+//                absenceApply.status =[NSNumber numberWithInteger:[responseArr[i][@"status"] integerValue]];
+//                absenceApply.feedback = (responseArr[i][@"feedback"] == (id)[NSNull null])?@"":(responseArr[i][@"feedback"]);
+//            }
+//            else
+//            {
                 AbsenceApply *absenceApply = [NSEntityDescription insertNewObjectForEntityForName:@"AbsenceApply" inManagedObjectContext:_managedObjectContext];
                 absenceApply.applyId = [NSNumber numberWithInteger:[responseArr[i][@"id"] integerValue]];
                 absenceApply.userId = [NSNumber numberWithInteger:[responseArr[i][@"userId"] integerValue]];
@@ -175,11 +178,12 @@ static bool isRefreshing = NO;
                 absenceApply.status = [NSNumber numberWithInteger:[responseArr[i][@"status"] integerValue]];
                 absenceApply.feedback = (responseArr[i][@"feedback"] == (id)[NSNull null])?@"":(responseArr[i][@"feedback"]);
                 absenceApply.checked = [NSNumber numberWithInteger:[responseArr[i][@"checked"] integerValue]];
-            }
+//            }
         }
     }
     if (request.tag == 2) //处理通知的响应数据
     {
+        [Inform clearEntityDataInContext:_managedObjectContext];
         for (NSDictionary *record in responseArr)
         {
             Inform *inform = [NSEntityDescription insertNewObjectForEntityForName:kInformEntityName inManagedObjectContext:_managedObjectContext];
@@ -196,6 +200,7 @@ static bool isRefreshing = NO;
     }
     if (request.tag == 3) //处理公告的响应数据
     {
+        [Announcement clearEntityDataInContext:_managedObjectContext];
         for (NSDictionary *record in responseArr)
         {
             Announcement *announcement = [NSEntityDescription insertNewObjectForEntityForName:kAnnouncementEntityName inManagedObjectContext:_managedObjectContext];
@@ -256,78 +261,80 @@ static bool isRefreshing = NO;
         
         /************  request for todo messages  ******************/
         //获取本地最大的请假出差记录的id -- applyId
-        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-        NSEntityDescription *entity = [NSEntityDescription entityForName:kAbsenceApplyEntityName inManagedObjectContext:_managedObjectContext];
-        [fetchRequest setEntity:entity];
+//        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+//        NSEntityDescription *entity = [NSEntityDescription entityForName:kAbsenceApplyEntityName inManagedObjectContext:_managedObjectContext];
+//        [fetchRequest setEntity:entity];
         NSDate *now = [NSDate date];
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"yyyy-MM-dd"];
         NSString *todayStr = [NSString stringWithFormat:@"%@ 00:00:00", [dateFormatter stringFromDate:now]];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-        NSDate *today = [dateFormatter dateFromString:todayStr];
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(endDate >= %@)", today];
-        [fetchRequest setPredicate:predicate];
-        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"applyId" ascending:YES];
-        [fetchRequest setSortDescriptors:@[sortDescriptor]];
-        fetchRequest.fetchLimit = 1;
-        
-        NSError *error = nil;
-        NSArray *fetchResults = [_managedObjectContext executeFetchRequest:fetchRequest error:&error];
-        NSNumber *afterApplyId = [NSNumber numberWithInt:0];
-        if ([fetchResults count]) {
-            AbsenceApply *absenceApply = [fetchResults objectAtIndex:0];
-            afterApplyId = absenceApply.applyId;
-        }
+//        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+//        NSDate *today = [dateFormatter dateFromString:todayStr];
+//        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(endDate >= %@)", today];
+//        [fetchRequest setPredicate:predicate];
+//        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"applyId" ascending:YES];
+//        [fetchRequest setSortDescriptors:@[sortDescriptor]];
+//        fetchRequest.fetchLimit = 1;
+//        
+//        NSError *error = nil;
+//        NSArray *fetchResults = [_managedObjectContext executeFetchRequest:fetchRequest error:&error];
+//        NSNumber *afterApplyId = [NSNumber numberWithInt:0];
+//        if ([fetchResults count]) {
+//            AbsenceApply *absenceApply = [fetchResults objectAtIndex:0];
+//            afterApplyId = absenceApply.applyId;
+//        }
         NSString *urlString = [NSString stringWithFormat:@"%@/index.php?r=absenseApply/clientIndex",ServerUrl];
         ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
         [request setPostValue:[Globals userId] forKey:@"userId"];
-        [request setPostValue:[afterApplyId stringValue] forKey:@"afterApplyId"];
+//        [request setPostValue:[afterApplyId stringValue] forKey:@"afterApplyId"];
+        [request setPostValue:@"0" forKey:@"afterApplyId"];
         [request setPostValue:todayStr forKey:@"afterDate"];
         request.tag = 1;
         [_networkQueue addOperation:request];
         
         /************  request for notification records  ******************/
-        NSFetchRequest *informFetchRequest = [[NSFetchRequest alloc] init];
-        NSEntityDescription *informEntity = [NSEntityDescription entityForName:kInformEntityName inManagedObjectContext:_managedObjectContext];
-        [informFetchRequest setEntity:informEntity];
-        [informFetchRequest setResultType:NSDictionaryResultType];
-        NSExpression *keyPathExpression_info = [NSExpression expressionForKeyPath:@"informId"];
-        NSExpression *largestExpression_info = [NSExpression expressionForFunction:@"max:" arguments:[NSArray arrayWithObject:keyPathExpression_info]];
-        NSExpressionDescription *largestExpreDes_info = [[NSExpressionDescription alloc] init];
-        [largestExpreDes_info setName:@"largestInformId"];
-        [largestExpreDes_info setExpression:largestExpression_info];
-        [largestExpreDes_info setExpressionResultType:NSInteger64AttributeType];
-        [informFetchRequest setPropertiesToFetch:[NSArray arrayWithObject:largestExpreDes_info]];
-        NSArray *informResults = [_managedObjectContext executeFetchRequest:informFetchRequest error:nil];
-        NSNumber *largestInformId = [[informResults lastObject] valueForKey:@"largestInformId"];
-        NSLog(@"%@",largestInformId);
+//        NSFetchRequest *informFetchRequest = [[NSFetchRequest alloc] init];
+//        NSEntityDescription *informEntity = [NSEntityDescription entityForName:kInformEntityName inManagedObjectContext:_managedObjectContext];
+//        [informFetchRequest setEntity:informEntity];
+//        [informFetchRequest setResultType:NSDictionaryResultType];
+//        NSExpression *keyPathExpression_info = [NSExpression expressionForKeyPath:@"informId"];
+//        NSExpression *largestExpression_info = [NSExpression expressionForFunction:@"max:" arguments:[NSArray arrayWithObject:keyPathExpression_info]];
+//        NSExpressionDescription *largestExpreDes_info = [[NSExpressionDescription alloc] init];
+//        [largestExpreDes_info setName:@"largestInformId"];
+//        [largestExpreDes_info setExpression:largestExpression_info];
+//        [largestExpreDes_info setExpressionResultType:NSInteger64AttributeType];
+//        [informFetchRequest setPropertiesToFetch:[NSArray arrayWithObject:largestExpreDes_info]];
+//        NSArray *informResults = [_managedObjectContext executeFetchRequest:informFetchRequest error:nil];
+//        NSNumber *largestInformId = [[informResults lastObject] valueForKey:@"largestInformId"];
+//        NSLog(@"%@",largestInformId);
         
         NSString *urlString2 = [NSString stringWithFormat:@"%@/index.php?r=inform/clientIndex",ServerUrl];
         ASIFormDataRequest *informRequest = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:urlString2]];
-        [informRequest setPostValue:[largestInformId stringValue] forKey:@"afterId"];
+//        [informRequest setPostValue:[largestInformId stringValue] forKey:@"afterId"];
+        [informRequest setPostValue:@"0" forKey:@"afterId"];
         [informRequest setPostValue:[Globals userId] forKey:@"userId"];
         informRequest.tag = 2;
         [_networkQueue addOperation:informRequest];
         
         /************  request for announcement records  ******************/
-        NSFetchRequest *announceFetchRequest = [[NSFetchRequest alloc] init];
-        NSEntityDescription *announceEntity = [NSEntityDescription entityForName:kAnnouncementEntityName inManagedObjectContext:_managedObjectContext];
-        [announceFetchRequest setEntity:announceEntity];
-        [announceFetchRequest setResultType:NSDictionaryResultType];
-        NSExpression *keyPathExpression = [NSExpression expressionForKeyPath:@"announceId"];
-        NSExpression *largestExpression = [NSExpression expressionForFunction:@"max:" arguments:[NSArray arrayWithObject:keyPathExpression]];
-        NSExpressionDescription *largestExpreDes = [[NSExpressionDescription alloc] init];
-        [largestExpreDes setName:@"largestAnnounceId"];
-        [largestExpreDes setExpression:largestExpression];
-        [largestExpreDes setExpressionResultType:NSInteger64AttributeType];
-        [announceFetchRequest setPropertiesToFetch:[NSArray arrayWithObject:largestExpreDes]];
-        NSArray *announceFetchResults = [_managedObjectContext executeFetchRequest:announceFetchRequest error:nil];
-        NSNumber *largestAnnounceId = [[announceFetchResults lastObject] valueForKey:@"largestAnnounceId"];
-        NSLog(@"%@",largestAnnounceId);
+//        NSFetchRequest *announceFetchRequest = [[NSFetchRequest alloc] init];
+//        NSEntityDescription *announceEntity = [NSEntityDescription entityForName:kAnnouncementEntityName inManagedObjectContext:_managedObjectContext];
+//        [announceFetchRequest setEntity:announceEntity];
+//        [announceFetchRequest setResultType:NSDictionaryResultType];
+//        NSExpression *keyPathExpression = [NSExpression expressionForKeyPath:@"announceId"];
+//        NSExpression *largestExpression = [NSExpression expressionForFunction:@"max:" arguments:[NSArray arrayWithObject:keyPathExpression]];
+//        NSExpressionDescription *largestExpreDes = [[NSExpressionDescription alloc] init];
+//        [largestExpreDes setName:@"largestAnnounceId"];
+//        [largestExpreDes setExpression:largestExpression];
+//        [largestExpreDes setExpressionResultType:NSInteger64AttributeType];
+//        [announceFetchRequest setPropertiesToFetch:[NSArray arrayWithObject:largestExpreDes]];
+//        NSArray *announceFetchResults = [_managedObjectContext executeFetchRequest:announceFetchRequest error:nil];
+//        NSNumber *largestAnnounceId = [[announceFetchResults lastObject] valueForKey:@"largestAnnounceId"];
+//        NSLog(@"%@",largestAnnounceId);
         
         NSString *urlString3 = [NSString stringWithFormat:@"%@/index.php?r=announcement/clientIndex",ServerUrl];
         ASIFormDataRequest *announceRequest = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:urlString3]];
-        [announceRequest setPostValue:[largestAnnounceId stringValue] forKey:@"afterId"];
+        [announceRequest setPostValue:@"0" forKey:@"afterId"];
         announceRequest.tag = 3;
         [_networkQueue addOperation:announceRequest];
         
@@ -411,11 +418,11 @@ static bool isRefreshing = NO;
     }
     cell.statusLabel.text = status;
     
-    bool isChecked = [absenceApply.checked boolValue];
-    if (!isChecked)
-        cell.backgroundColor = [UIColor yellowColor];
-    else
-        cell.backgroundColor = [UIColor whiteColor];
+//    bool isChecked = [absenceApply.checked boolValue];
+//    if (!isChecked)
+//        cell.backgroundColor = [UIColor yellowColor];
+//    else
+//        cell.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)configureAnnounceCell:(MessageCell *)cell atIndexPath:(NSIndexPath *)indexPath

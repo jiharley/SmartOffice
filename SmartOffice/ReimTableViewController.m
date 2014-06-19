@@ -9,11 +9,12 @@
 #import "ReimTableViewController.h"
 #include "ReimProgressTableViewController.h"
 #import "ASIFormDataRequest.h"
+#import "WaitView.h"
 
-@interface ReimTableViewController ()
+@interface ReimTableViewController () <ASIHTTPRequestDelegate>
 @property (nonatomic, strong) NSArray *reimProgressArr;
 @property (nonatomic, strong) NSArray *reimArr;
-
+@property (nonatomic, strong) WaitView *waitView;
 @end
 
 @implementation ReimTableViewController
@@ -40,16 +41,28 @@
     [request setPostValue:[Globals userId] forKey:@"userId"];
     request.delegate = self;
     [request startAsynchronous];
+    
+    CGRect rect = [UIScreen mainScreen].bounds;
+    _waitView = [[WaitView alloc] initWithFrame:rect];
+    [self.navigationController.view addSubview:_waitView];
 }
 
 #pragma mark ASIHTTPDelegate
 - (void) requestFinished:(ASIHTTPRequest *)request
 {
+    [_waitView removeFromSuperview];
+    _waitView = nil;
     NSLog(@"%@", request.responseString);
     NSDictionary *responseDic = [NSJSONSerialization JSONObjectWithData:request.responseData options:kNilOptions error:nil];
     self.reimProgressArr = [responseDic valueForKey:@"progress"];
     self.reimArr = [responseDic valueForKey:@"reim"];
     [self.tableView reloadData];
+}
+
+- (void) requestFailed:(ASIHTTPRequest *)request
+{
+    [_waitView removeFromSuperview];
+    _waitView = nil;
 }
 
 - (void)didReceiveMemoryWarning

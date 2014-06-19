@@ -10,6 +10,7 @@
 #import "TextViewCell.h"
 #import "AbsenceApply.h"
 #import "ASIFormDataRequest.h"
+#import "WaitView.h"
 
 #define kTitle @"title"
 #define kContent @"content"
@@ -20,6 +21,9 @@ static NSString *kDetailCell = @"detailReasonCell";
 @property (nonatomic, strong) NSArray *detailInfoArr;
 @property (nonatomic, strong) NSString *title;
 @property (assign) NSInteger detailReasonCellRowHeight;
+
+@property (nonatomic, strong) WaitView *waitView;
+
 //@property (assign) NSInteger sectionCount;
 - (IBAction)actionAgree:(id)sender;
 - (IBAction)actionDisagree:(id)sender;
@@ -106,6 +110,10 @@ static NSString *kDetailCell = @"detailReasonCell";
 
 - (void)requestForAgree:(BOOL)isAgree withFeedback:(NSString *)feedback
 {
+    CGRect rect = [UIScreen mainScreen].bounds;
+    _waitView = [[WaitView alloc] initWithFrame:rect];
+    [self.navigationController.view addSubview:_waitView];
+    
     NSString *urlString = [NSString stringWithFormat:@"%@/index.php?r=absenseApply/clientUpdate",ServerUrl ];
     ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
     __weak ASIFormDataRequest *request_ = request;
@@ -118,6 +126,9 @@ static NSString *kDetailCell = @"detailReasonCell";
     }
     //操作成功，数据返回后的处理
     [request setCompletionBlock:^{
+        [_waitView removeFromSuperview];
+        _waitView = nil;
+
         NSLog(@"%@", request_.responseString);
         NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:[request_ responseData] options:kNilOptions error:nil];
         if ([[resultDic valueForKey:@"resultCode"] intValue] == 1)
@@ -168,6 +179,9 @@ static NSString *kDetailCell = @"detailReasonCell";
     }];
     //操作失败
     [request setFailedBlock:^{
+        [_waitView removeFromSuperview];
+        _waitView = nil;
+
         UIAlertView *av = [[UIAlertView alloc] initWithTitle:nil message:@"网络错误" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [av show];
     }];

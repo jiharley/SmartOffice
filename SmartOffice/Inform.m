@@ -20,4 +20,5 @@
 @dynamic validDate;
 @dynamic isImportant;
 
+
 @end

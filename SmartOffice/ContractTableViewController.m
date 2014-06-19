@@ -9,10 +9,12 @@
 #import "ContractTableViewController.h"
 #import "ASIFormDataRequest.h"
 #import "ContractProgressViewController.h"
+#import "WaitView.h"
 
 @interface ContractTableViewController ()<ASIHTTPRequestDelegate>
 @property (nonatomic, strong) NSArray *contracProgressArr;
 @property (nonatomic, strong) NSArray *contractArr;
+@property (nonatomic, strong) WaitView *waitView;
 
 @end
 
@@ -40,17 +42,30 @@
     [request setPostValue:[Globals userId] forKey:@"userId"];
     request.delegate = self;
     [request startAsynchronous];
+    CGRect rect = [UIScreen mainScreen].bounds;
+    _waitView = [[WaitView alloc] initWithFrame:rect];
+    [self.navigationController.view addSubview:_waitView];
+
 }
 
 #pragma mark ASIHTTPDelegate 
 - (void) requestFinished:(ASIHTTPRequest *)request
 {
+    [_waitView removeFromSuperview];
+    _waitView = nil;
     NSLog(@"%@", request.responseString);
     NSDictionary *responseDic = [NSJSONSerialization JSONObjectWithData:request.responseData options:kNilOptions error:nil];
     self.contracProgressArr = [responseDic valueForKey:@"progress"];
     self.contractArr = [responseDic valueForKey:@"contract"];
     [self.tableView reloadData];
 }
+
+- (void) requestFailed:(ASIHTTPRequest *)request
+{
+    [_waitView removeFromSuperview];
+    _waitView = nil;
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

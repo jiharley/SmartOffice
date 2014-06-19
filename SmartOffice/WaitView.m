@@ -15,6 +15,13 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        self.backgroundColor = [UIColor clearColor];
+        self.alpha = 1.0;
+        CGRect rect = CGRectMake(frame.size.width/2 - 60, frame.size.height/2 - 20, 120, 40);
+        UILabel *waitLabel = [[UILabel alloc] initWithFrame:rect];
+        waitLabel.backgroundColor = [UIColor lightGrayColor];
+        waitLabel.text = @"正在载入...";
+        [self addSubview:waitLabel];
     }
     return self;
 }
