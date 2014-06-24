@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CheckWholeDayCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UISwitch *checkWholeDaySwitch;
+@interface CheckerCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UISwitch *switcher;
 
 @end

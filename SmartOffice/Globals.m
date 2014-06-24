@@ -110,4 +110,40 @@
 {
     [[NSUserDefaults standardUserDefaults] setValue:date forKey:kSignDate];
 }
+
+//sign alert time getter and setter
++(NSString *) signInAlertTime
+{
+    return [[NSUserDefaults standardUserDefaults] valueForKey:kSignInAlertTime];
+}
+
++(void) setSignInAlertTime:(NSString *)time
+{
+    [[NSUserDefaults standardUserDefaults] setValue:time forKey:kSignInAlertTime];
+}
+
++(NSString *) signOutAlertTime
+{
+    return [[NSUserDefaults standardUserDefaults] valueForKey:kSignOutAlertTime];
+}
+
++(void) setSignOutAlertTime:(NSString *)time
+{
+    [[NSUserDefaults standardUserDefaults] setValue:time forKey:kSignOutAlertTime];
+}
+
++(NSString *) signAlertSwitch
+{
+    return [[NSUserDefaults standardUserDefaults] valueForKey:kSignAlertSwitch];
+}
+
++(void) setSignAlertOn:(BOOL)on
+{
+    if (on) {
+        [[NSUserDefaults standardUserDefaults] setValue:@"ON" forKey:kSignAlertSwitch];
+    }
+    else {
+        [[NSUserDefaults standardUserDefaults] setValue:@"OFF" forKey:kSignAlertSwitch];
+    }
+}
 @end

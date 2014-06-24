@@ -11,6 +11,7 @@
 #import "ContractTableViewController.h"
 #import "ReimTableViewController.h"
 #import "MeetingRoomTableViewController.h"
+#import "SettingsViewController.h"
 
 @interface MoreViewController ()<UIAlertViewDelegate>
 
@@ -47,7 +48,7 @@
 #pragma tableview datasource
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return 4;
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -60,6 +61,9 @@
             return 3;
             break;
         case 2:
+            return 1;
+            break;
+        case 3:
             return 1;
             break;
         default:
@@ -96,6 +100,9 @@
             }
             break;
         case 2:
+            cell.textLabel.text = @"设置";
+            break;
+        case 3:
             cell.accessoryType = UITableViewCellAccessoryNone;
             cell.backgroundColor = [UIColor redColor];
             cell.textLabel.text = @"退出登录";
@@ -134,6 +141,11 @@
             break;
         }
         case 2:
+        {
+            [self performSegueWithIdentifier:@"settings" sender:self];
+            break;
+        }
+        case 3:
         {
             UIAlertView *av = [[UIAlertView alloc] initWithTitle:nil message:@"确定退出？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"退出", nil];
             av.tag = 0;
@@ -206,6 +218,10 @@
     if ([segue.identifier isEqualToString:@"reserveRoom"]) {
         MeetingRoomTableViewController *meetingRoomVC = (MeetingRoomTableViewController *)[segue destinationViewController];
         meetingRoomVC.hidesBottomBarWhenPushed = YES;
+    }
+    if ([segue.identifier isEqualToString:@"settings"]) {
+        SettingsViewController *settingsVC = (SettingsViewController *)[segue destinationViewController];
+        settingsVC.hidesBottomBarWhenPushed = YES;
     }
 }
 

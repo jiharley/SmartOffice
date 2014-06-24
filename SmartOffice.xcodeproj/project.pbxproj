@@ -19,7 +19,7 @@
 		38317D2018F3FB2500358C28 /* PersonalInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38317D1F18F3FB2500358C28 /* PersonalInfoTableViewController.m */; };
 		38351ADE18ED49D400AA17F6 /* SmartOffice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 38351ADC18ED49D400AA17F6 /* SmartOffice.xcdatamodeld */; };
 		38351AEA18EFF5BF00AA17F6 /* ToDoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38351AE918EFF5BF00AA17F6 /* ToDoCell.m */; };
-		3842956818C8B0A200FC5E28 /* CheckWholeDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3842956718C8B0A200FC5E28 /* CheckWholeDayCell.m */; };
+		3842956818C8B0A200FC5E28 /* CheckerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3842956718C8B0A200FC5E28 /* CheckerCell.m */; };
 		385BD71C18C7150900F6A3BB /* graycircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 385BD71B18C7150900F6A3BB /* graycircle.png */; };
 		385BD71E18C71FEB00F6A3BB /* bluecircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 385BD71D18C71FEB00F6A3BB /* bluecircle.png */; };
 		385BD72C18C75AA500F6A3BB /* TextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 385BD72B18C75AA500F6A3BB /* TextViewCell.m */; };
@@ -97,6 +97,7 @@
 		38F7667818CEFFF900228F1C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F7667718CEFFF900228F1C /* MobileCoreServices.framework */; };
 		38F7667A18CF000400228F1C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F7667918CF000400228F1C /* SystemConfiguration.framework */; };
 		38F7667C18CF000D00228F1C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F7667B18CF000D00228F1C /* CFNetwork.framework */; };
+		EAA0AFA61959191600F4FD55 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA0AFA51959191600F4FD55 /* SettingsViewController.m */; };
 		EABC71EE1951DC260011B93D /* Inform+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = EABC71ED1951DC260011B93D /* Inform+Addition.m */; };
 		EAE1DACE1951E1C700BD88DB /* Announcement+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE1DACD1951E1C700BD88DB /* Announcement+Addition.m */; };
 		EAE1DAD11951E27900BD88DB /* AbsenceApply+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE1DAD01951E27900BD88DB /* AbsenceApply+Addition.m */; };
@@ -132,8 +133,8 @@
 		38351ADD18ED49D400AA17F6 /* smartoffice.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = smartoffice.xcdatamodel; sourceTree = "<group>"; };
 		38351AE818EFF5BF00AA17F6 /* ToDoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoCell.h; sourceTree = "<group>"; };
 		38351AE918EFF5BF00AA17F6 /* ToDoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoCell.m; sourceTree = "<group>"; };
-		3842956618C8B0A200FC5E28 /* CheckWholeDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckWholeDayCell.h; sourceTree = "<group>"; };
-		3842956718C8B0A200FC5E28 /* CheckWholeDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckWholeDayCell.m; sourceTree = "<group>"; };
+		3842956618C8B0A200FC5E28 /* CheckerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckerCell.h; sourceTree = "<group>"; };
+		3842956718C8B0A200FC5E28 /* CheckerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckerCell.m; sourceTree = "<group>"; };
 		385BD71B18C7150900F6A3BB /* graycircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graycircle.png; sourceTree = "<group>"; };
 		385BD71D18C71FEB00F6A3BB /* bluecircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bluecircle.png; sourceTree = "<group>"; };
 		385BD72A18C75AA500F6A3BB /* TextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewCell.h; sourceTree = "<group>"; };
@@ -249,6 +250,8 @@
 		38F7667718CEFFF900228F1C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		38F7667918CF000400228F1C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		38F7667B18CF000D00228F1C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		EAA0AFA41959191600F4FD55 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		EAA0AFA51959191600F4FD55 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		EABC71EC1951DC260011B93D /* Inform+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Inform+Addition.h"; sourceTree = "<group>"; };
 		EABC71ED1951DC260011B93D /* Inform+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Inform+Addition.m"; sourceTree = "<group>"; };
 		EAE1DACC1951E1C700BD88DB /* Announcement+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Announcement+Addition.h"; sourceTree = "<group>"; };
@@ -352,8 +355,8 @@
 				388E83D818C43DA20047CF86 /* MessageCell.xib */,
 				385BD72A18C75AA500F6A3BB /* TextViewCell.h */,
 				385BD72B18C75AA500F6A3BB /* TextViewCell.m */,
-				3842956618C8B0A200FC5E28 /* CheckWholeDayCell.h */,
-				3842956718C8B0A200FC5E28 /* CheckWholeDayCell.m */,
+				3842956618C8B0A200FC5E28 /* CheckerCell.h */,
+				3842956718C8B0A200FC5E28 /* CheckerCell.m */,
 				38DB5F1218C8B8D7008C2085 /* DatePickerCell.h */,
 				38DB5F1318C8B8D7008C2085 /* DatePickerCell.m */,
 				38351AE818EFF5BF00AA17F6 /* ToDoCell.h */,
@@ -572,6 +575,8 @@
 				38E04451190E234B0064A96F /* ReimProgressTableViewController.m */,
 				389C44F8191C8141007738C6 /* MeetingRoomTableViewController.h */,
 				389C44F9191C8141007738C6 /* MeetingRoomTableViewController.m */,
+				EAA0AFA41959191600F4FD55 /* SettingsViewController.h */,
+				EAA0AFA51959191600F4FD55 /* SettingsViewController.m */,
 			);
 			name = MoreTab;
 			sourceTree = "<group>";
@@ -715,6 +720,7 @@
 				381ED4E718C6C74D0048AC13 /* SignProgressView.m in Sources */,
 				3878CF4718CED66F00D3A671 /* ASINetworkQueue.m in Sources */,
 				38E0444F190E218A0064A96F /* ReimTableViewController.m in Sources */,
+				EAA0AFA61959191600F4FD55 /* SettingsViewController.m in Sources */,
 				386EEB4E18BDD9D100500855 /* AttendanceViewController.m in Sources */,
 				386EEB4518BDD9D100500855 /* AppDelegate.m in Sources */,
 				38317D2018F3FB2500358C28 /* PersonalInfoTableViewController.m in Sources */,
@@ -731,7 +737,7 @@
 				3878CF4818CED66F00D3A671 /* Reachability.m in Sources */,
 				38E044581915D1CA0064A96F /* WaitView.m in Sources */,
 				38CE91F118FF72750049DB82 /* MessageDetailViewController.m in Sources */,
-				3842956818C8B0A200FC5E28 /* CheckWholeDayCell.m in Sources */,
+				3842956818C8B0A200FC5E28 /* CheckerCell.m in Sources */,
 				3878CF4018CED66F00D3A671 /* ASIAuthenticationDialog.m in Sources */,
 				388E83DE18C441800047CF86 /* MessageCell.m in Sources */,
 				38CE91F418FF83A40049DB82 /* VaribleTextCell.m in Sources */,
@@ -861,6 +867,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

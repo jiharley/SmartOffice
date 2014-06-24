@@ -123,6 +123,7 @@ static NSString *noSignTime = @"--:--:--";
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    self.locationManager = nil;
 }
 
 - (IBAction)beginSign:(id)sender {

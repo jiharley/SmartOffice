@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 //#define ServerUrl @"http://192.168.1.115/so"
-#define ServerUrl @"http://wm.tongji.edu.cn/so"
+#define ServerUrl @"http://wm.tongji.edu.cn/so-yc"
 
 #define kDeviceToken @"deviceToken"
 #define kUsername @"userName"
@@ -19,6 +19,12 @@
 #define kComeSignTime @"comeSignTime"
 #define kLeaveSignTime @"leaveSignTime"
 #define kSignDate @"signDate"
+
+#define kSignInAlertTime @"signInAlert"
+#define kSignOutAlertTime @"signOutAlert"
+#define kSignAlertSwitch @"ON"
+#define defaultSignInTimeStr @"08:30"
+#define defaultSignOutTimeStr @"17:30"
 
 #define kAbsenceApplyEntityName @"AbsenceApply"
 #define kAnnouncementEntityName @"Announcement"
@@ -54,4 +60,15 @@
 
 +(NSString *) signDate;
 +(void) setSignDate:(NSString *)date;
+
+//format:'HH:mm'
++(NSString *) signInAlertTime;
++(void) setSignInAlertTime:(NSString *)time;
+
+//format:'HH:mm'
++(NSString *) signOutAlertTime;
++(void) setSignOutAlertTime:(NSString *)time;
+
++(NSString *) signAlertSwitch;
++(void) setSignAlertOn:(BOOL)on;
 @end

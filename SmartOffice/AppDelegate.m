@@ -132,6 +132,53 @@
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     isActive = NO;
     NSLog(@"enterBackground");
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    if (![[Globals signAlertSwitch] isEqualToString:@"OFF"])
+    {
+        NSString *signInAlertTimeStr = nil;
+        NSString *signOutAlertTimeStr = nil;
+        if ([Globals signInAlertTime] && [Globals signOutAlertTime]) {
+            signInAlertTimeStr = [Globals signInAlertTime];
+            signOutAlertTimeStr = [Globals signOutAlertTime];
+        }
+        else{
+            signInAlertTimeStr = defaultSignInTimeStr;
+            signOutAlertTimeStr = defaultSignOutTimeStr;
+        }
+
+        NSInteger signInHour = [[signInAlertTimeStr substringToIndex:2] integerValue];
+        NSInteger signInMin = [[signInAlertTimeStr substringWithRange:NSMakeRange(3, 2)] integerValue];
+        NSInteger signOutHour = [[signOutAlertTimeStr substringToIndex:2] integerValue];
+        NSInteger signOutMin = [[signOutAlertTimeStr substringWithRange:NSMakeRange(3, 2)] integerValue];
+        
+        NSCalendar *calendar = [NSCalendar currentCalendar];
+        [calendar setTimeZone:[NSTimeZone defaultTimeZone]];
+        
+        NSDateComponents *components = [[NSDateComponents alloc] init];
+        [components setDay:24];
+        [components setMonth:6];
+        [components setYear:2014];
+        [components setSecond:0];
+        [components setHour:signInHour];
+        [components setMinute:signInMin];
+        NSDate *signInTimeToFire = [calendar dateFromComponents:components];
+        
+        [components setHour:signOutHour];
+        [components setMinute:signOutMin];
+        NSDate *signOutTimeToFire = [calendar dateFromComponents:components];
+        
+        UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+        localNotification.fireDate = signInTimeToFire;
+        localNotification.timeZone = [NSTimeZone defaultTimeZone];
+        localNotification.alertBody = @"上班了，该签到啦！";
+        localNotification.soundName = UILocalNotificationDefaultSoundName;
+        localNotification.repeatInterval = kCFCalendarUnitDay;
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+        
+        localNotification.fireDate = signOutTimeToFire;
+        localNotification.alertBody = @"要下班咯，来签退吧！";
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    }
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 WMLab. All rights reserved.
 //
 
-#import "CheckWholeDayCell.h"
+#import "CheckerCell.h"
 
-@implementation CheckWholeDayCell
+@implementation CheckerCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

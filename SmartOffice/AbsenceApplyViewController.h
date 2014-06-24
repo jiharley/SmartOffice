@@ -10,7 +10,7 @@
 //#import "DateCell.h"
 //#import "DatePickerCell.h"
 #import "TextViewCell.h"
-#import "CheckWholeDayCell.h"
+#import "CheckerCell.h"
 #import "DatePickerCell.h"
 
 @interface AbsenceApplyViewController : UITableViewController

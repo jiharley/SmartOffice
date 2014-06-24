@@ -352,7 +352,7 @@ NSUInteger DeviceSystemMajorVersion()
 {
     UITableViewCell *dateCell = nil;
     TextViewCell *textViewCell = nil;
-    CheckWholeDayCell *switchCell = nil;
+    CheckerCell *switchCell = nil;
     DatePickerCell *pickerCell = nil;
     
     NSString *cellID = kDetailReasonCellID;
@@ -376,8 +376,8 @@ NSUInteger DeviceSystemMajorVersion()
             switch ([indexPath row]) {
                 case 0:
                 {
-                    switchCell = (CheckWholeDayCell *)[tableView dequeueReusableCellWithIdentifier:cellID];
-                    [switchCell.checkWholeDaySwitch setOn:isCheckWholeDay animated:NO];
+                    switchCell = (CheckerCell *)[tableView dequeueReusableCellWithIdentifier:cellID];
+                    [switchCell.switcher setOn:isCheckWholeDay animated:NO];
                     return switchCell;
                     break;
                 }
