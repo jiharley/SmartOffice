@@ -55,10 +55,19 @@
 +(void) setUserInfo:(NSDictionary *)userInfo
 {
 //    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSMutableDictionary *tempDic = [userInfo mutableCopy];
+    for(NSString *key in userInfo)
+    {
+        if ([[userInfo valueForKey:key] isKindOfClass:[NSNull class]] || [userInfo valueForKey:key] == nil) {
+            [tempDic setValue:@"" forKey:key];
+        }
+//        id valueObj = (userInfo[key] == NULL) ? @"":userInfo[key];
+//        [userInfo setValue:valueObj forKey:key];
+    }
     NSString *infoPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *fileName = [infoPath stringByAppendingPathComponent:@"userInfo.plist"];
 //    [fileManager createFileAtPath:fileName contents:nil attributes:nil];
-    BOOL didWriteSuccess = [userInfo writeToFile:fileName atomically:NO];
+    BOOL didWriteSuccess = [tempDic writeToFile:fileName atomically:NO];
     NSLog(@"%d",didWriteSuccess);
 }
 

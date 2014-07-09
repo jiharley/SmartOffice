@@ -10,6 +10,8 @@
 #import <AdSupport/AdSupport.h>
 #import <AudioToolbox/AudioToolbox.h>
 
+#define SecondsInOneDay (24*3600)
+
 @implementation AppDelegate
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
@@ -145,7 +147,25 @@
             signInAlertTimeStr = defaultSignInTimeStr;
             signOutAlertTimeStr = defaultSignOutTimeStr;
         }
+        
+        NSMutableDictionary *tempDic = [NSMutableDictionary dictionary];
+        [tempDic setObject:signInAlertTimeStr forKey:@"kAlertTime"];
+        [tempDic setObject:@"上班了，该签到啦！" forKey:@"kAlertContent"];
+        
+        NSDictionary *signInAlertDic = [tempDic copy];
+        [tempDic setObject:signOutAlertTimeStr forKey:@"kAlertTime"];
+        [tempDic setObject:@"要下班咯，来签退吧！" forKey:@"kAlertContent"];
 
+        NSDictionary *signOutDic = [tempDic copy];
+        
+        //2-->周一 ... 6-->周五
+        for (int i=2; i<=6; i++) {
+            [self addNotificationWithAlertInfo:signInAlertDic Date:[self SetDateForAlarmWithWeekday:i andAlertInfo:signInAlertDic] andRepeatInterval:NSWeekCalendarUnit];
+            [self addNotificationWithAlertInfo:signOutDic Date:[self SetDateForAlarmWithWeekday:i andAlertInfo:signOutDic] andRepeatInterval:NSWeekCalendarUnit];
+        }
+        
+        
+        /*
         NSInteger signInHour = [[signInAlertTimeStr substringToIndex:2] integerValue];
         NSInteger signInMin = [[signInAlertTimeStr substringWithRange:NSMakeRange(3, 2)] integerValue];
         NSInteger signOutHour = [[signOutAlertTimeStr substringToIndex:2] integerValue];
@@ -162,22 +182,23 @@
         [components setHour:signInHour];
         [components setMinute:signInMin];
         NSDate *signInTimeToFire = [calendar dateFromComponents:components];
-        
         [components setHour:signOutHour];
         [components setMinute:signOutMin];
         NSDate *signOutTimeToFire = [calendar dateFromComponents:components];
+        
         
         UILocalNotification *localNotification = [[UILocalNotification alloc] init];
         localNotification.fireDate = signInTimeToFire;
         localNotification.timeZone = [NSTimeZone defaultTimeZone];
         localNotification.alertBody = @"上班了，该签到啦！";
         localNotification.soundName = UILocalNotificationDefaultSoundName;
-        localNotification.repeatInterval = kCFCalendarUnitDay;
+        localNotification.repeatInterval = kCFCalendarUnitWeek;;
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
         
         localNotification.fireDate = signOutTimeToFire;
         localNotification.alertBody = @"要下班咯，来签退吧！";
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+         */
     }
 }
 
@@ -202,6 +223,63 @@
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
 }
+
+//添加本地通知，根据日期和通知内容
+-(void) addNotificationWithAlertInfo:(NSDictionary*)alertDic Date:(NSDate *)date andRepeatInterval:(NSCalendarUnit)CalUnit
+{
+    UILocalNotification *localNotification =[[UILocalNotification alloc]init];
+    
+    localNotification.fireDate=date;
+    localNotification.timeZone=[NSTimeZone defaultTimeZone];
+    localNotification.repeatCalendar=[NSCalendar currentCalendar];
+    localNotification.alertBody=[NSString stringWithFormat:@"%@",[alertDic objectForKey:@"kAlertContent"]];
+    
+    localNotification.repeatInterval = CalUnit;
+    localNotification.soundName = UILocalNotificationDefaultSoundName;
+    localNotification.applicationIconBadgeNumber=1;
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    
+}
+
+//设置日期，时间和星期几
+-(NSDate*)SetDateForAlarmWithWeekday:(int)WeekDay andAlertInfo:(NSDictionary*)dics
+{
+    NSLog(@"set date for alarm called");
+    NSCalendar *calendar=[NSCalendar currentCalendar];
+    [calendar setTimeZone:[NSTimeZone defaultTimeZone]];
+    
+    unsigned currentFlag=NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit|NSWeekdayCalendarUnit;
+    
+    NSDateComponents *comp=[calendar components:currentFlag fromDate:[NSDate date]];
+    
+    NSArray *array = [[dics objectForKey:@"kAlertTime"] componentsSeparatedByString:@":"];
+    NSInteger hour = [[array objectAtIndex:0] intValue];
+    NSInteger min = [[array objectAtIndex:1] intValue];
+    
+    comp.hour=hour;
+    comp.minute=min;
+    comp.second=0;
+    
+    NSLog(@"set date for alarm (%li:%li:%li)",(long)comp.hour,(long)comp.minute,(long)comp.second);
+    NSLog(@"weekday :%i ",WeekDay);
+    NSLog(@"comp weekday %li",(long)comp.weekday);
+    int diff=(int)(WeekDay-comp.weekday);
+    NSLog(@"difference :%d",diff);
+    
+    int multiplier;
+    if (WeekDay==0) {
+        multiplier=0;
+    }else
+    {
+        multiplier=diff>0?diff:(diff==0?diff:diff+7);
+    }
+    
+    NSLog(@"multiplier :%i",multiplier);
+    
+    return [[calendar dateFromComponents:comp]dateByAddingTimeInterval:multiplier*SecondsInOneDay];
+}
+
 
 - (void)saveContext
 {
