@@ -83,7 +83,7 @@
         case 1:
             switch ([indexPath row]) {
                 case 0:
-                    cell.textLabel.text = @"办公室预约";
+                    cell.textLabel.text = @"会议室预约";
                     break;
                 case 1:
                     cell.textLabel.text = @"报销进度";
